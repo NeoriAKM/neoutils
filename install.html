@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>NeoUtils -> install</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <button class="main-button" onclick="location.href = 'index.html'"><img src="img/home.png" alt="Домой" class="icon"></button>
+            <button onclick="location.href = 'install.html'">Скачать</button>
+        </header>
+        <h1>NeoUtils --> Install</h1>
+
+        <h3>
+            На этой странице вы можете скачать бинарные файлы. Но если вам интересно,
+            то в конце сайта есть ссылки на установку исходного кода
+            <hr>
+            Ниже представлены файлы, которые вы можете установить
+        </h3>
+        <br>
+
+        <div class="install-section">
+            <h2 class="section-text">Исполняемые файлы</h2>
+            <button class="install-button" onclick="window.location.href='files/lsdr'">lsdr</button>
+            <button class="install-button" onclick="window.location.href='files/dog'">dog</button>
+            <button class="install-button" onclick="window.location.href='files/echo'">echo</button>
+            <button class="install-button" onclick="window.location.href='files/clear'">clear</button>
+            <button class="install-button" onclick="window.location.href='files/whereami'">whereami</button>
+        </div>
+
+        <div class="install-section">
+            <h2 class="section-text">Исходный код</h2>
+            <button class="install-button" onclick="window.location.href='src/lsdr.c'">Исходный код lsdr</button>
+            <button class="install-button" onclick="window.location.href='src/dog.c'">Исходный код dog</button>
+            <button class="install-button" onclick="window.location.href='src/echo.c'">Исходный код echo</button>
+            <button class="install-button" onclick="window.location.href='src/clear.c'">Исходный код clear</button>
+            <button class="install-button" onclick="window.location.href='src/whereami.c'">Исходный код whereami</button>
+        </div>
+
+        <div class="install-section">
+            <h2 class="section-text">zip архив всех утилит</h2>
+            <button class="install-button" onclick="window.location.href='files/all.zip'">Скачать исполняемые</button>
+            <button class="install-button" onclick="window.location.href='src/all.zip'">Скачать исходный код</button>
+        </div>
+    </body>
+</html>
