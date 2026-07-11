@@ -100,10 +100,10 @@ button {
     }
 
     button {
-        width: 10%;
+        width: 25%;
         font-size: 12px;
         border-radius: 5px;
-        margin: 0.5;
+        margin: 0.4;
     }
 
     .icon {
