@@ -32,6 +32,8 @@ button {
     font-size: 20px;
     border-radius: 10px;
     margin: 1;
+    &:hover {background-color: rgb(182, 179, 255);}
+    &:active {background-color: rgb(117, 113, 254);}
 }
 
 .main-button {
@@ -79,4 +81,10 @@ button {
     width: 95%;
     height: fit-content;
     text-align: center;
+}
+
+.install-mark {
+    color: limegreen;
+    margin-left: 5%;
+    text-shadow:  rgb(0, 120, 0);
 }

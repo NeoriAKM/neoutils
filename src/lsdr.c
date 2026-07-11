@@ -20,23 +20,27 @@ int main(int argc, char *argv[]) {
     // флаги
     int showall = 0;
     int fast = 0;
+    int numerate = 0;
 
     path = ".";
 
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--version") == 0) {        // version
             printf("----------------------------------------------\n");
-            printf("LSDR v1.0 | By %sNeori%s | Made for %sProgwiLinux%s\n",
+            printf("LSDR v1.1 | By %sNeori%s | Made for %sProgwiLinux%s\n",
                 color2, color_end, color2, color_end);
             printf("----------------------------------------------\n");
             printf("Basic program to show list of the\n");
             printf("content from dir. Analog of 'ls'\n");
+            printf("More: https://neoriakm.github.io/neoutils\n");
             printf("----------------------------------------------\n");
             return 0;
         } else if (strcmp(argv[i], "-a") == 0) {        // all
             showall = 1;
         } else if (strcmp(argv[i], "-f") == 0 || strcmp(argv[i], "--fast") == 0) {  // fast
             fast = 1;
+        } else if (strcmp(argv[i], "-n") == 0 || strcmp(argv[i], "--numerate") == 0) {  // fast
+            numerate = 1;
         } else if (strcmp(argv[i], "--help") == 0) {    // help
             printf("                     %sUsage of lsdr%s        \n", color2, color_end);
             printf("%s--------------------------------------------------------%s\n",
@@ -51,6 +55,7 @@ int main(int argc, char *argv[]) {
             printf(" --version          prints info about LSDR\n");
             printf(" -f     --fast      disables delay between items\n");
             // printf(" -l      long       shows size (files) and file count (dirs)\n");
+            printf(" -n    --numerate   adds numerarion");
             printf(" --help             opening this text\n");
             return 0;
         } else {
@@ -84,10 +89,12 @@ int main(int argc, char *argv[]) {
 
 
         if (color_switch == 1) {
-            printf("%s%s%s\n", color1, entry->d_name, color_end);
+            if (numerate == 1) {printf("%s%i%s%s%s\n", color1, count, color2, entry->d_name, color_end);}
+            else if (numerate == 0) {printf("%s%s%s\n", color2, entry->d_name, color_end);}
             color_switch = 0;
         } else if (color_switch == 0) {
-            printf("%s%s%s\n", color2, entry->d_name, color_end);
+            if (numerate == 1) {printf("%s%i%s%s%s\n", color1, count, color2, entry->d_name, color_end);}
+            else if (numerate == 0) {printf("%s%s%s\n", color2, entry->d_name, color_end);}
             color_switch = 1;
         }
 
@@ -99,9 +106,3 @@ int main(int argc, char *argv[]) {
     closedir(dir);
     return 0;
 }
-
-
-// TODO:
-// 1. -f            +
-// 2. -l            -
-// 3. cursive       +
