@@ -1,5 +1,15 @@
 #include <stdio.h>
-#include <string.h>
+
+size_t strlen(const char *s) {
+    const char *p = s;
+    while (*p) p++;
+    return p - s;
+}
+
+int strcmp(const char *s1, const char *s2) {
+    while (*s1 && *s2 && *s1 == *s2) {s1++; s2++;}
+    return *(unsigned char *)s1 - *(unsigned char *)s2;
+}
 
 int main(int argc, char *argv[]) {
     char *filename = NULL;
@@ -38,7 +48,6 @@ int main(int argc, char *argv[]) {
                 printf("%s--------------------------------------------------------%s\n",
                     color1, endc);
                 printf("dog <path>         shows folders and files from that folder\n");
-                printf("dog                shows content from user folder\n");
                 printf("\n");
                 printf("                    %sFlags/arguments%s\n", color2, endc);
                 printf("%s--------------------------------------------------------%s\n",

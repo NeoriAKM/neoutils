@@ -1,4 +1,100 @@
-# NeoUtils - минималистичный Coreutils на C
+# (EN) NeoUtils - simple Coreutils on C
+
+**By:** NeoriGG
+**Version:** 16.78
+**License:** MIT
+
+Utilities-pack, thats doing the same, whats a classic GNU CoreUtils. Something between GNU CoreUtils and BusyBox.
+---
+## Whats in the NeoUtils
+### lsdr - analog of ls
+
+I am rewrote classic command ls from scratch. She is shows files & folders in working directory
+She is:
+
+- Weight 6 KB (GNU ls — ~120 KB).
+- Working **without** `stdio.h` & `string.h`.
+- Using an own `printf` & `strcmp`.
+- Have a many flags, about his I made **--help** for every command
+
+#### ***Shows list fast and without trash. If you need balance functionality, weight and dependencies - this lsdr is your***
+---
+### dog - analog of cat
+
+Yes, its dog. She's doing the same, whats thee cat. But... naming better :)
+Typing a file content
+simple in using:
+
+```bash
+dog file.txt
+```
+
+Working fast, weight a small, many flags:
+- --help & --version : base
+- -n : disabling numeration
+- -e : skip empty stringlines
+- -a : disabling limit in 500 stringlines
+---
+### whereami - analog of pwd
+
+It shows which folder you are currently in the full path to the current directory.
+The command is so simple that I didn't even clutter it with flags.
+There are only `--help` and `--version`, you can't do without those.
+
+For simplicity, you can create an alias: `whereami='wai'`
+
+---
+### echo - analog of echo
+
+Typing transmitted text.
+Working an usual:
+
+```bash
+echo Hello, world!
+# output: Hello, world!
+```
+It's... just typing. Yes.
+inside - own strlen, strcmp, printi, prints.
+
+---
+### clear - analog of clear
+
+clearing terminal screen.
+Its all. Just clearing.
+
+---
+### time - timer for srcipts (analog of sleep)
+
+Thats utilite was born in needness doing a pauses in scripts.
+It does not output the time like `date`; it waits for the specified amount of time and then exits.
+
+flags:
+- -s : number in seconds
+- -m : number in minutes
+- -u : number in microseconds
+
+Work:
+```bash
+time -s 5   # wait 5 seconds
+time -m 1   # wait 1 minute
+```
+
+---
+## Requirements
+### OS
+Linux or another UNIX-like OS is recommended. If `glibc` is missing, download the static binary.
+### C Compiler
+Any working compiler (though I recommend GCC for running `build.sh`).
+
+## Installation
+
+Download the ready-made files from the [NeoUtils website](https://neoriakm.github.io/neoutils).
+
+---
+---
+---
+
+# (RU) NeoUtils - минималистичный Coreutils на C
 
 **Автор:** NeoriGG
 **Версия:** 16.78

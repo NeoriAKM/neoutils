@@ -5,7 +5,7 @@
 
 body {
     background: linear-gradient(180deg, rgb(95, 101, 255), rgb(255, 255, 255));
-    background-size: 3000px 3000px;
+    background-size: 1500px 2000px;
 }
 
 hr {
@@ -89,6 +89,7 @@ button {
 }
 
 @media (max-width: 768px) {
+    body {background-size: 1000px 1000px;}
 
     header {
         display: flex;
@@ -102,7 +103,7 @@ button {
     button {
         width: 35%;
         font-size: 12px;
-        border-radius: 10px;
+        border-radius: 15px;
         margin: 0.4px;
     }
 
@@ -145,4 +146,43 @@ button {
         margin-left: 10%;
         text-shadow:  rgb(0, 120, 0);
 }
+}
+
+@media (max-width: 220px) {
+    button {
+        width: 35%;
+        font-size: 8px;
+        border-radius: 15px;
+        margin: 0.4px;
+    }
+
+    header {
+        height: 30px;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 5px;
+    }
+
+    .icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .install-section {        
+        border: 2px solid #ffffff;
+        border-radius: 10px;
+        background: #5b5bab87;
+        margin: 10px auto;
+        box-shadow: 0 8px 20px rgba(0, 128, 255, 0.186);
+        width: 85%;
+        height: fit-content;
+        text-align: center;
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 1920px) {
+    body {
+        background-size: 4000px 4000px;
+    }
 }
