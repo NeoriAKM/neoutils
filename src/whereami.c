@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
             printf("                  %sFlags/arguments%s\n", color2, endc);
             printf("%s--------------------------------------------------------%s\n",
                 color1, endc);
-            printf(" --version        prints info about whereami\n");
+            printf(" --version        prints info about WAI\n");
             printf(" --help           opening this text\n");
             return 0;
         } else {

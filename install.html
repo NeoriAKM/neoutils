@@ -24,7 +24,7 @@
 
         <div class="install-section">
             <h2 class="section-text">Исполняемые файлы</h2>
-            <button class="install-button" onclick="window.location.href='files/lsdr'">lsdr <strong><span class="install-mark">new</span></strong></button>
+            <button class="install-button" onclick="window.location.href='files/lsdr'">lsdr</button>
             <button class="install-button" onclick="window.location.href='files/dog'">dog</button>
             <button class="install-button" onclick="window.location.href='files/echo'">echo</button>
             <button class="install-button" onclick="window.location.href='files/clear'">clear</button>
@@ -33,17 +33,27 @@
 
         <div class="install-section">
             <h2 class="section-text">Исходный код</h2>
-            <button class="install-button" onclick="window.location.href='src/lsdr.c'">Исходный код lsdr</button>
-            <button class="install-button" onclick="window.location.href='src/dog.c'">Исходный код dog</button>
-            <button class="install-button" onclick="window.location.href='src/echo.c'">Исходный код echo</button>
-            <button class="install-button" onclick="window.location.href='src/clear.c'">Исходный код clear</button>
-            <button class="install-button" onclick="window.location.href='src/whereami.c'">Исходный код whereami</button>
+            <button class="install-button" onclick="window.location.href='src/lsdr.c'">Исходники lsdr</button>
+            <button class="install-button" onclick="window.location.href='src/dog.c'">Исходники dog</button>
+            <button class="install-button" onclick="window.location.href='src/echo.c'">Исходники echo</button>
+            <button class="install-button" onclick="window.location.href='src/clear.c'">Исходники clear</button>
+            <button class="install-button" onclick="window.location.href='src/whereami.c'">Исходники whereami</button>
         </div>
 
         <div class="install-section">
+            <h2 class="section-text">статичные (работают без glibc)</h2>
+            <button class="install-button" onclick="window.location.href='static/lsdr.c'">статичный lsdr</button>
+            <button class="install-button" onclick="window.location.href='static/dog.c'">статичный dog</button>
+            <button class="install-button" onclick="window.location.href='static/echo.c'">статичный echo</button>
+            <button class="install-button" onclick="window.location.href='static/clear.c'">статичный clear</button>
+            <button class="install-button" onclick="window.location.href='static/whereami.c'">статичный whereami</button>
+        </div>
+        
+        <div class="install-section">
             <h2 class="section-text">zip архив всех утилит</h2>
-            <button class="install-button" onclick="window.location.href='files/all.zip'">Скачать исполняемые</button>
-            <button class="install-button" onclick="window.location.href='src/all.zip'">Скачать исходный код</button>
+            <button class="install-button" onclick="window.location.href='files/all.zip'">исполняемые</button>
+            <button class="install-button" onclick="window.location.href='static/all.zip'">статичные исполняемые</button>
+            <button class="install-button" onclick="window.location.href='src/all.zip'">исходники</button>
         </div>
     </body>
 </html>
