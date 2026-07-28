@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
         for (int i = 1; i < argc; i++) {
             if (strcmp(argv[i], "--version") == 0) {            // version
                 printf("----------------------------------------------\n");
-                printf("dog v0.2 | By %sNeori%s | Made for %sProgwiLinux%s\n",
+                printf("dog v1.0 | By %sNeori%s | Made for %sProgwiLinux%s\n",
                     color2, endc, color2, endc);
                 printf("----------------------------------------------\n");
                 printf("Program for reading a files.\n");

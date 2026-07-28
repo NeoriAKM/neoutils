@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Абобут NeoUtils</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <button class="main-button" onclick="location.href = 'index.html'"><img src="img/home.png" alt="Домой" class="icon"></button>
+            <button onclick="location.href = 'install.html'">Скачать</button>
+            <button onclick="location.href = 'news.html'">Новости</button>
+            <button onclick="location.href = 'abt.html'">О утилитах</button>
+        </header>
+        Тут каждый узнает о каждой мелочи утилиты
+        <h1>lsdr</h1>
+        <h2>1.3 | 28.07.2026</h2>
+        Одна из главных утилит всех времен! ls на линуксе, а на DOS и Windows эта утилита называлась dir.
+        Эта версия отличается от первоисходников простым коротким кодом. Так же тут есть цветной вывод.
+        И с недавнего времени его можно отключить, если вы желаете пользоваться белым выводом, с помощью флага
+        -no-color.<br>
+        <h3>теперь разбор кода</h3>
+        Начнем с импортов. импотируются:
+        <li>unistd.h: для системных вызовов, типо write.</li>
+        <li>dirent.h: для работы с папкой, а точнее с чтением данных из папки</li>
+        <li>sys/stat.h: для получения информации, является ли объект папкой или файлом. Это для жирного вывода папок</li>
+        Далее идут <strong>объявления функций</strong> strlen, strcmp, prints, printi, потом
+        <strong>объявляются переменные</strong>: параметры папки (с помощью dirent.h), 
+        бъявление цветов, счётчик и int-type значения флагов (nocolor, numerate, showall...).
+        <br>Потом начинается <strong>главная функция main(int argc, char* argv[])</strong>.
+        В ней уже начинается for цикл до тех пор пока аргументы не закончатся. После успешного
+        (или не совсем) парсинга аргументов код переходит к исполнению, <strong>начинается
+        while ((entry = readdir(dir)) != NULL)</strong>. В нем происходят все события проверки
+        значений цветов и состояние аргументов. там же находится вывод.
+        <h2>Факты</h2>
+        Нумерация могла быть в самой первой версии, но появилась относительно недавно.
+        Фактов больше нету
+        <hr>
+        Больше инфы не будет. Ну или будет, но придет она постепенно, не спеша,
+        не шурша, так же тихо, как черешма поглощает этот сайт...
+    </body>
+</html>
