@@ -11,33 +11,32 @@
             <button class="main-button" onclick="location.href = 'index.html'"><img src="img/home.png" alt="Домой" class="icon"></button>
             <button onclick="location.href = 'install.html'">Скачать</button>
             <button onclick="location.href = 'news.html'">Новости</button>
+            <button onclick="location.href = 'abt.html'">О утилитах</button>
         </header>
-        <h1>lsdr</h1>
-        <h2>v1.2.2 | 16.07.2026</h2>
-        <h3>
-            CHANGED
-            - флаг -n исправлен, и теперь он нормально всё выводит.
-            TECH
-            - программа отказалась от stdio.h и string.h, и теперь в коде утилиты есть функции,
-              копирующие нужное из этих двух библиотек
-        </h3>
+        <h1>новые утилиты</h1>
+        <h2>yesno | 0.1 | 24.07.2026</h2>
+        Утилита для программ на shell-синтаксисе. Работа похожа
+        как предложение Pacman при установке чего либо.
+        <h2>time | 0.1 | 23.07.2026</h2>
+        Ждёт определенное время. Флаги -u -s -m меняют время на микросекунды, секунды и минуты.
+        Без флагов он морозит время в милисекундах
+        <h2>yes | yyy | yyyy</h2>
+        Шо тут говорить? итак yyyyyy ой итyyyк yyyyyyyyснyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy yyyyyy блин
+        yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
         <hr>
-        
-        <h1>dog</h1>
-        <h2>v1.0 | 16.07.2026</h2>
-        <h3>
-            TECH
-            - отказ от string.h. Опять
-        </h3>
-        <hr>
+        <h1>Обновы</h1>
+        <h2>lsdr | 1.3 | 28.07.2026</h2>
+        <li>код был оптимизирован в части вывода</li>
+        <li>добавлен новый флаг <code>-no-color</code></li>
+        <li>буффер длины выводимого числа увеличен до 32 символов в функции printi (Print int / вывести число)</li>
+        <h2>echo | 1.2.1 | 27.07.2026</h2>
+        <li>Исправленна строка, ошибочно упоминающая LSDR вместо echo</li>
+        <li>Удалена неиспользуемая функция вывода int-type переменной</li>
 
-        <h1>echo</h1>
-        <h2>v1.2 | 16.07.2026</h2>
-        <h3>
-            CHANGED
-            - правки в --version и --help
-            TECH
-            - отказ от string.h и stdio.h, Ричард Столлман заплачет когда увидит этот сайт :/
-        </h3>
+        <hr>
+        Обнов в этом релизе мало, но новых утилит тут больше, я отдыхал, а если не отдыхал то писал новые утилиты<br>
     </body>
+    <a href="abt.html">О каждой утилите...</a>
+    <hr>
+    <footer><br>NeoUtils © 2025—2026, Neori</footer>
 </html>
