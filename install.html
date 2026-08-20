@@ -2,6 +2,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>NeoUtils -> install</title>
+        <link rel="icon" href="img/logo.svg" type="image/svg">
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -9,60 +10,70 @@
     <body>
         <header>
             <button class="main-button" onclick="location.href = 'index.html'"><img src="img/home.png" alt="Домой" class="icon"></button>
-            <button onclick="location.href = 'install.html'">Скачать</button>
-            <button onclick="location.href = 'news.html'">Новости</button>
-            <button onclick="location.href = 'abt.html'">О утилитах</button>
+            <button onclick="location.href = 'install.html'">Install</button>
+            <button onclick="location.href = 'news.html'">News</button>
+            <button onclick="location.href = 'abt.html'">About Utilities</button>
+            <button class="main-button" onclick="location.href = 'install.ru.html'"><img src="img/usa.svg" alt="RU" class="icon"></button>
         </header>
         <h1>NeoUtils --> Install</h1>
 
         <h3>
-            На этой странице вы можете скачать бинарные файлы. Но если вам интересно,
-            то в конце сайта есть ссылки на установку исходного кода
-            <hr>
-            Ниже представлены файлы, которые вы можете установить
+            On this page you can install binary files. but if you you need it,
+            in end of site I placed links for installing source code.
         </h3>
+        <strong><span style="color: red;">DISCLAMER: thats only for Linux!</span></strong>
+        <hr>
+        <span>Files for installing VVV</span>
         <br>
 
         <div class="install-section">
-            <h2 class="section-text">Исполняемые файлы</h2>
+            <h2 class="section-text">Executable</h2>
             <button class="install-button" onclick="window.location.href='files/lsdr'">lsdr</button>
             <button class="install-button" onclick="window.location.href='files/dog'">dog</button>
             <button class="install-button" onclick="window.location.href='files/echo'">echo</button>
             <button class="install-button" onclick="window.location.href='files/clear'">clear</button>
             <button class="install-button" onclick="window.location.href='files/whereami'">whereami</button>
-        </div>
-
-        <div class="install-section">
-            <h2 class="section-text">Исходный код</h2>
-            <button class="install-button" onclick="window.location.href='src/lsdr.c'">Исходники lsdr</button>
-            <button class="install-button" onclick="window.location.href='src/dog.c'">Исходники dog</button>
-            <button class="install-button" onclick="window.location.href='src/echo.c'">Исходники echo</button>
-            <button class="install-button" onclick="window.location.href='src/clear.c'">Исходники clear</button>
-            <button class="install-button" onclick="window.location.href='src/whereami.c'">Исходники whereami</button>
+            <button class="install-button" onclick="window.location.href='files/wait.c'">wait</button>
+            <button class="install-button" onclick="window.location.href='files/yes.c'">yes</button>
+            <button class="install-button" onclick="window.location.href='files/yesno.c'">yesno</button>
             <!-- новое -->
-            <button class="install-button" onclick="window.location.href='src/wait.c'">Исходники wait</button>
-            <button class="install-button" onclick="window.location.href='src/yes.c'">Исходники yes</button>
-            <button class="install-button" onclick="window.location.href='src/yesno.c'">Исходники yesno</button>
+            <button class="install-button" onclick="window.location.href='files/mov'">mov</button>
         </div>
 
         <div class="install-section">
-            <h2 class="section-text">статичные (работают без glibc)</h2>
-            <button class="install-button" onclick="window.location.href='static/lsdr'">статичный lsdr</button>
-            <button class="install-button" onclick="window.location.href='static/dog'">статичный dog</button>
-            <button class="install-button" onclick="window.location.href='static/echo'">статичный echo</button>
-            <button class="install-button" onclick="window.location.href='static/clear'">статичный clear</button>
-            <button class="install-button" onclick="window.location.href='static/whereami'">статичный whereami</button>
+            <h2 class="section-text">Source code</h2>
+            <button class="install-button" onclick="window.location.href='src/lsdr.c'">Source lsdr</button>
+            <button class="install-button" onclick="window.location.href='src/dog.c'">Source dog</button>
+            <button class="install-button" onclick="window.location.href='src/echo.c'">Source echo</button>
+            <button class="install-button" onclick="window.location.href='src/clear.c'">Source clear</button>
+            <button class="install-button" onclick="window.location.href='src/whereami.c'">Source whereami</button>
+            <button class="install-button" onclick="window.location.href='src/mov.c'">Source mov</button>
+            <button class="install-button" onclick="window.location.href='src/wait.c'">Source wait</button>
+            <button class="install-button" onclick="window.location.href='src/yes.c'">Source yes</button>
+            <button class="install-button" onclick="window.location.href='src/yesno.c'">Source yesno</button>
             <!-- новое -->
-            <button class="install-button" onclick="window.location.href='static/wait'">статичный wait</button>
-            <button class="install-button" onclick="window.location.href='static/yes'">статичный yes</button>
-            <button class="install-button" onclick="window.location.href='static/yesno'">статичный yesno</button>
+            <button class="install-button" onclick="window.location.href='src/mov'">Source mov</button>
         </div>
 
         <div class="install-section">
-            <h2 class="section-text">zip архив всех утилит</h2>
-            <button class="install-button" onclick="window.location.href='files/all.zip'">исполняемые</button>
-            <button class="install-button" onclick="window.location.href='static/all.zip'">статичные исполняемые</button>
-            <button class="install-button" onclick="window.location.href='src/all.zip'">исходники</button>
+            <h2 class="section-text">static (Working without glibc)</h2>
+            <button class="install-button" onclick="window.location.href='static/lsdr'">Static lsdr</button>
+            <button class="install-button" onclick="window.location.href='static/dog'">Static dog</button>
+            <button class="install-button" onclick="window.location.href='static/echo'">Static echo</button>
+            <button class="install-button" onclick="window.location.href='static/clear'">Static clear</button>
+            <button class="install-button" onclick="window.location.href='static/whereami'">Static whereami</button>
+            <button class="install-button" onclick="window.location.href='static/wait'">Static wait</button>
+            <button class="install-button" onclick="window.location.href='static/yes'">Static yes</button>
+            <button class="install-button" onclick="window.location.href='static/yesno'">Static yesno</button>
+            <!-- новое -->
+            <button class="install-button" onclick="window.location.href='static/mov'">Static mov</button>
+        </div>
+
+        <div class="install-section">
+            <h2 class="section-text">zip archive of all utils</h2>
+            <button class="install-button" onclick="window.location.href='files/all.zip'">Executable</button>
+            <button class="install-button" onclick="window.location.href='static/all.zip'">Static executable</button>
+            <button class="install-button" onclick="window.location.href='src/all.zip'">Sources</button>
         </div>
     </body>
 </html>

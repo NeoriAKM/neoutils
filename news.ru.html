@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NeoUtils -> News</title>
+        <link rel="icon" href="img/logo.svg" type="image/svg">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <button class="main-button" onclick="location.href = 'index.ru.html'"><img src="img/home.png" alt="Домой" class="icon"></button>
+            <button onclick="location.href = 'install.ru.html'">Скачать</button>
+            <button onclick="location.href = 'news.ru.html'">Новости</button>
+            <button onclick="location.href = 'abt.ru.html'">О утилитах</button>
+            <button class="main-button" onclick="location.href = 'news.html'"><img src="img/russia.svg" alt="RU" class="icon"></button>
+        </header>
+        <h1>новые утилиты</h1>
+        <h2>mov | 0.1 | 20.08.2026</h2>
+        <span>
+            Аналог mv. Делает почти то же самое. Можно включить логи флагом -l.
+            Но она плохо парсит пути. Например `mov file.txt directory/` не выполнится. выполнится
+            только `mov file.txt directory/file.txt`, в будущем это будет исправлено. Довольно
+            таки классическая программа
+        </span>
+        <hr>
+        <h1>Обновления</h1>
+        <h2>lsdr | 1.4 | 20.08.2026</h2>
+        <span>
+            <li>Добавлена неиспользуемая функция println. Просто prints + `\n`</li>
+            <li>добавлен новый флаг <code>-no-fat</code></li>
+            <li>printi был обновлён.</li>
+            <li>Добавлена обработка ошибок в случае если lsdr не смог понять, папка это или файл</li>
+            <li>
+                Задержка без флага -f теперь уменьшается прогрессивно. Полезно если забыл применить флаг,
+                а папка имеет много файлов (как /bin)
+            </li>
+        </span>
+        <hr>
+    </body>
+    <a href="abt.html">О каждой утилите...</a>
+    <footer><br>NeoUtils © 2025—2026, Neori</footer>
+</html>
