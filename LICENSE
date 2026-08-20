@@ -1,10 +1,10 @@
 EN_us
 
-Internacional Neori's License 1.0
+Internacional Neori's License 1.2
 Copyright (c) Neori 2025 - 2026
 
 By interacting with the program, you acknowledge that the program's author bears
-no responsibility for actions performed by the program.
+no responsibility for actions performed by the program or game.
 
 You can:
 - Making changes
@@ -13,22 +13,21 @@ You can:
 
 You cannot:
 - Writing thats you are author
-- you can't selling a programm, having only code, guarding by license INLv1. But you can use guarded code
-  in compound other programs, even commerical, under conditions, whats that programs are not just copy or
-  an assembly without significant changes or additions.
+- Selling code, guarded with INLv1, as stand-alone product
 
 mandatory requirements:
-- attribute authorship. Can type in the code name/pseudonim of author, and links for him socnets.
+- attribute authorship. Type name of author in code, documentation or CREDITS
 
 Neori, 2025 - 2026
 
+------------------------
 RU_ru
 
-Internacional Neori's License 1.0
+Internacional Neori's License 1.2
 Copyright (c) Neori 2025 - 2026
 
 Взаимодействуя с программой, вы подтверждаете, что автор программы не несёт никакую
-ответственность за дела, совершенные данной программой.
+ответственность за дела, совершенные данной программой или игрой.
 
 Можно:
 - Вносить изменения
@@ -37,13 +36,9 @@ Copyright (c) Neori 2025 - 2026
 
 Нельзя:
 - Указывать автором себя
-- Нельзя продавать программу, состоящую исключительно из кода, охраняемого данной лицензией (INLv1).
-  Однако разрешается использовать охраняемый код в составе других программ, даже коммерческих, при
-  условии, что эти программы не являются простой копией или сборкой охраняемого кода без значительных
-  изменений или добавлений.
+- Продавать код как отдельный продукт
 
 Обязательные требования:
-- Указать авторство. Необязательно визуально.
-  Можно в коде написать автора и ссылку на его Github.
+- Указать авторство. Комментарием в коде, в документации, или в CREDITS
 
 Neori, 2025 - 2026

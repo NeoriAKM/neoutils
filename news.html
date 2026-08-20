@@ -2,6 +2,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>NeoUtils -> News</title>
+        <link rel="icon" href="img/logo.svg" type="image/svg">
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -9,34 +10,33 @@
     <body>
         <header>
             <button class="main-button" onclick="location.href = 'index.html'"><img src="img/home.png" alt="Домой" class="icon"></button>
-            <button onclick="location.href = 'install.html'">Скачать</button>
-            <button onclick="location.href = 'news.html'">Новости</button>
-            <button onclick="location.href = 'abt.html'">О утилитах</button>
+            <button onclick="location.href = 'install.html'">Install</button>
+            <button onclick="location.href = 'news.html'">News</button>
+            <button onclick="location.href = 'abt.html'">About utilities</button>
+            <button class="main-button" onclick="location.href = 'news.ru.html'"><img src="img/usa.svg" alt="RU" class="icon"></button>
         </header>
-        <h1>новые утилиты</h1>
-        <h2>yesno | 0.1 | 24.07.2026</h2>
-        Утилита для программ на shell-синтаксисе. Работа похожа
-        как предложение Pacman при установке чего либо.
-        <h2>time | 0.1 | 23.07.2026</h2>
-        Ждёт определенное время. Флаги -u -s -m меняют время на микросекунды, секунды и минуты.
-        Без флагов он морозит время в милисекундах
-        <h2>yes | yyy | yyyy</h2>
-        Шо тут говорить? итак yyyyyy ой итyyyк yyyyyyyyснyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy yyyyyy блин
-        yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+        <h1>New utilities</h1>
+        <h2>mov | 0.1 | 20.08.2026</h2>
+        <span>
+            Analog mv. Doing also the same. You can turn on logs with flag -l.
+            But she is has bad parser of paths. `mov file.txt directory/` cannot execute. Only
+            `mov file.txt directory/file.txt`, That will fix coming soon.
+        </span>
         <hr>
-        <h1>Обновы</h1>
-        <h2>lsdr | 1.3 | 28.07.2026</h2>
-        <li>код был оптимизирован в части вывода</li>
-        <li>добавлен новый флаг <code>-no-color</code></li>
-        <li>буффер длины выводимого числа увеличен до 32 символов в функции printi (Print int / вывести число)</li>
-        <h2>echo | 1.2.1 | 27.07.2026</h2>
-        <li>Исправленна строка, ошибочно упоминающая LSDR вместо echo</li>
-        <li>Удалена неиспользуемая функция вывода int-type переменной</li>
-
+        <h1>Updates</h1>
+        <h2>lsdr | 1.4 | 20.08.2026</h2>
+        <span>
+            <li>Added unused function println. Just prints + `\n`</li>
+            <li>New flag <code>-no-fat</code></li>
+            <li>printi updated.</li>
+            <li>Added error excepting if lsdr don't understood, its folder or file</li>
+            <li>
+                Delay with flag -f/--fast now progressly fading out. Useful if u forgot write flag,
+                and folder has 300+ files (like <code>/bin</code>)
+            </li>
+        </span>
         <hr>
-        Обнов в этом релизе мало, но новых утилит тут больше, я отдыхал, а если не отдыхал то писал новые утилиты<br>
     </body>
-    <a href="abt.html">О каждой утилите...</a>
-    <hr>
+    <a href="abt.html">About every utilitie</a>
     <footer><br>NeoUtils © 2025—2026, Neori</footer>
 </html>

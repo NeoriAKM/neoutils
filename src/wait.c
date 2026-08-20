@@ -1,13 +1,13 @@
 // #include <>
 #include <unistd.h>
 
-size_t strlen(const char *s) {
+size_t len(const char *s) {
     const char *p = s;
     while (*p) p++;
     return p - s;
 }
 
-int strcmp(const char *s1, const char *s2) {
+int cmp(const char *s1, const char *s2) {
     while (*s1 && *s2 && *s1 == *s2) {s1++; s2++;}
     return *(unsigned char *)s1 - *(unsigned char *)s2;
 }
@@ -22,7 +22,7 @@ int toint(const char *str) {
     return result;
 }
 
-static void prints(const char* text) {write(1, text, strlen(text));}
+static void prints(const char* text) {write(1, text, len(text));}
 static void printi(int n) {
     char buf[12];
     int i = 0;
@@ -48,7 +48,7 @@ int main(int argc, char *argv[]) {
     // int nano = 0;
 
     for (int i = 1; i < argc; i++) {
-        if (strcmp(argv[i], "--version") == 0) {        // version
+        if (cmp(argv[i], "--version") == 0) {        // version
             prints("----------------------------------------------\n");
             prints("time v0.1 | by "); prints(color2); prints("Neori");
             prints(color_end); prints(" | Made for "); prints(color2);
@@ -58,15 +58,15 @@ int main(int argc, char *argv[]) {
             prints("More: https://neoriakm.github.io/neoutils\n");
             prints("----------------------------------------------\n");
             return 0;
-        } else if (strcmp(argv[i], "-s") == 0) {    // seconds
+        } else if (cmp(argv[i], "-s") == 0) {    // seconds
             seconds = 1;
-        } else if (strcmp(argv[i], "-s") == 0) {    // minutes
+        } else if (cmp(argv[i], "-m") == 0) {    // minutes
             minutes = 1;
-        } else if (strcmp(argv[i], "-s") == 0) {    // micro
+        } else if (cmp(argv[i], "-u") == 0) {    // micro
             micro = 1;
-        // } else if (strcmp(argv[i], "-n") == 0) {    // nano
+        // } else if (cmp(argv[i], "-n") == 0) {    // nano
         //     nano = 1;
-        } else if (strcmp(argv[i], "--help") == 0) {    // help
+        } else if (cmp(argv[i], "--help") == 0) {    // help
             prints("                     ");
             prints(color2);
             prints("Usage of time\n");
@@ -95,7 +95,7 @@ int main(int argc, char *argv[]) {
     if (seconds == 1)      sleep(wait);
     else if (minutes == 1) sleep(wait * 60);
     else if (micro == 1)   usleep(wait);
-    // else if (nano == 1)    nanosleep(wait);
+ // else if (nano == 1)    nanosleep(wait);
     else                   usleep(wait * 1000);
 
     return 0;
