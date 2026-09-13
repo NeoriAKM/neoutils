@@ -26,7 +26,7 @@
         <span>Ниже представлены файлы, которые вы можете установить</span>
         <br>
 
-        <div class="install-section">
+        <!-- <div class="install-section">
             <h2 class="section-text">Исполняемые файлы</h2>
             <button class="install-button" onclick="window.location.href='files/lsdr'">lsdr</button>
             <button class="install-button" onclick="window.location.href='files/dog'">dog</button>
@@ -62,15 +62,23 @@
             <button class="install-button" onclick="window.location.href='static/wait'">статичный wait</button>
             <button class="install-button" onclick="window.location.href='static/yes'">статичный yes</button>
             <button class="install-button" onclick="window.location.href='static/yesno'">статичный yesno</button>
-            <!-- новое -->
              <button class="install-button" onclick="window.location.href='static/mov'">статичный mov</button>
-        </div>
+        </div> -->
 
         <div class="install-section">
-            <h2 class="section-text">zip архив всех утилит</h2>
-            <button class="install-button" onclick="window.location.href='files/all.zip'">исполняемые</button>
-            <button class="install-button" onclick="window.location.href='static/all.zip'">статичные исполняемые</button>
-            <button class="install-button" onclick="window.location.href='src/all.zip'">исходники</button>
+            <h2 class="section-text">zip архивы</h2>
+            <button class="install-button" onclick="window.location.href='files/all.zip'">
+                исполняемые
+                <span class="install-desc">Обычные файлы. Требуют glibc</span>
+            </button>
+            <button class="install-button" onclick="window.location.href='static/all.zip'">
+                статичные исполняемые
+                <span class="install-desc">Статичные, не имеют зависимостей, но весят больше</span>
+            </button>
+            <button class="install-button" onclick="window.location.href='src/all.zip'">
+                исходники
+                <span class="install-desc">Архив с исходным кодом</span>
+            </button>
         </div>
     </body>
 </html>

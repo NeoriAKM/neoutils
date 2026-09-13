@@ -26,7 +26,7 @@
         <span>Files for installing VVV</span>
         <br>
 
-        <div class="install-section">
+        <!-- <div class="install-section">
             <h2 class="section-text">Executable</h2>
             <button class="install-button" onclick="window.location.href='files/lsdr'">lsdr</button>
             <button class="install-button" onclick="window.location.href='files/dog'">dog</button>
@@ -36,7 +36,7 @@
             <button class="install-button" onclick="window.location.href='files/wait.c'">wait</button>
             <button class="install-button" onclick="window.location.href='files/yes.c'">yes</button>
             <button class="install-button" onclick="window.location.href='files/yesno.c'">yesno</button>
-            <!-- новое -->
+
             <button class="install-button" onclick="window.location.href='files/mov'">mov</button>
         </div>
 
@@ -51,7 +51,7 @@
             <button class="install-button" onclick="window.location.href='src/wait.c'">Source wait</button>
             <button class="install-button" onclick="window.location.href='src/yes.c'">Source yes</button>
             <button class="install-button" onclick="window.location.href='src/yesno.c'">Source yesno</button>
-            <!-- новое -->
+
             <button class="install-button" onclick="window.location.href='src/mov'">Source mov</button>
         </div>
 
@@ -65,15 +65,24 @@
             <button class="install-button" onclick="window.location.href='static/wait'">Static wait</button>
             <button class="install-button" onclick="window.location.href='static/yes'">Static yes</button>
             <button class="install-button" onclick="window.location.href='static/yesno'">Static yesno</button>
-            <!-- новое -->
+
             <button class="install-button" onclick="window.location.href='static/mov'">Static mov</button>
-        </div>
+        </div>-->
 
         <div class="install-section">
-            <h2 class="section-text">zip archive of all utils</h2>
-            <button class="install-button" onclick="window.location.href='files/all.zip'">Executable</button>
-            <button class="install-button" onclick="window.location.href='static/all.zip'">Static executable</button>
-            <button class="install-button" onclick="window.location.href='src/all.zip'">Sources</button>
+            <h2 class="section-text">Install ZIP</h2>
+                        <button class="install-button" onclick="window.location.href='files/all.zip'">
+                Executable
+                <span class="install-desc">Simple executable. Req glibc</span>
+            </button>
+            <button class="install-button" onclick="window.location.href='static/all.zip'">
+                Static executable
+                <span class="install-desc">Static. Don't need glibc, but weight more</span>
+            </button>
+            <button class="install-button" onclick="window.location.href='src/all.zip'">
+                Source code
+                <span class="install-desc">Archive with source code</span>
+            </button>
         </div>
     </body>
 </html>
