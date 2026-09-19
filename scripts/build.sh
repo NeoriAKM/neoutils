@@ -1,4 +1,5 @@
-alias cm='gcc -Os -s -ffunction-sections -fdata-sections -Wl,--gc-sections'
+cm() {gcc -Os -s -ffunction-sections -fdata-sections -Wl,--gc-sections}
+cma() {gcc -Os -s -ffunction-sections -fdata-sections -Wl,--gc-sections}
 
 if [[ ! "$1" ]]; then
 
@@ -34,15 +35,15 @@ if [[ ! "$1" ]]; then
     echo ""
     echo "MAKING ZIP"
 
-    zip -r src/all.zip src/*       -x src/all.zip    src/touch.c
-    zip -r files/all.zip files/*   -x files/all.zip  files/touch
-    zip -r static/all.zip static/* -x static/all.zip static/touch
+    zip -r src/all.zip src/*       -x src/all.zip
+    zip -r files/all.zip files/*   -x files/all.zip
+    zip -r static/all.zip static/* -x static/all.zip
 
 else
     if [[ "$1" = "zip" ]]; then
-        zip -r src/all.zip src/*       -x src/all.zip    src/touch.c
-        zip -r files/all.zip files/*   -x files/all.zip  files/touch
-        zip -r static/all.zip static/* -x static/all.zip static/touch
+        zip -r src/all.zip src/*       -x src/all.zip
+        zip -r files/all.zip files/*   -x files/all.zip
+        zip -r static/all.zip static/* -x static/all.zip
     else
         echo "compiling $1..."
         cm src/$1.c -o files/$1 && echo "(dn) success"
