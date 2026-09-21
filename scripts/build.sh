@@ -1,52 +1,68 @@
-cm() {gcc -Os -s -ffunction-sections -fdata-sections -Wl,--gc-sections}
-cma() {gcc -Os -s -ffunction-sections -fdata-sections -Wl,--gc-sections}
+cm() {
+    gcc -Os -s -ffunction-sections -fdata-sections -Wl,--gc-sections "$@"
+}
 
-if [[ ! "$1" ]]; then
+make_zip() {
+    for d in src files static; do
+        [[ -d "$d" ]] || continue
+        (cd "$d" && zip -r all.zip . -x 'all.zip') >/dev/null
+        echo "zip: $d/all.zip"
+    done
+}
+
+
+UTILS=(lsdr dog whereami clear wait yes yesno mov add)
+
+mkdir -p files static
+
+if ! echo 'int main(void){return 0;}' | gcc -static -x c - -o /tmp/_t 2>/dev/null; then
+    echo "warning: -static not supported, skipping static build"
+    SKIP_STATIC=1
+fi
+
+if ! command -v zip >/dev/null; then
+    echo "zip not found"
+    SKIP_ZIP=1
+fi
+
+
+###################################################
+###################################################
+###################################################
+
+if [[ $# -eq 0 ]]; then
 
     # dinamic
     echo "DINAMIC COMPILATION"
 
-    cm src/lsdr.c -o files/lsdr         && echo "(dn) lsdr:     OK"
-    cm src/dog.c -o files/dog           && echo "(dn) dog:      OK"
-    cm src/whereami.c -o files/whereami && echo "(dn) whereami: OK"
-    cm src/echo.c -o files/echo         && echo "(dn) echo:     OK"
-    cm src/clear.c -o files/clear       && echo "(dn) clear:    OK"
-    cm src/wait.c -o files/wait         && echo "(dn) wait:     OK"
-    cm src/yes.c -o files/yes           && echo "(dn) yes:      OK"
-    cm src/yesno.c -o files/yesno       && echo "(dn) yesno:    OK"
-    cm src/mov.c -o files/mov           && echo "(dn) mov:      OK"
+    for i in "${UTILS[@]}"; do
+        cm src/$i.c -o files/$i && printf '(dn) %-15s OK\n' "$i:" || printf '(dn) %-15s FAIL\n' "$i:"
+    done
 
     # static
-    echo ""
-    echo "STATIC COMPILATION"
+    if [[ -z "${SKIP_STATIC:-}" ]]; then
+        echo ""
+        echo "STATIC COMPILATION"
 
-    cm -static src/lsdr.c -o static/lsdr         && echo "(st) lsdr:     OK"
-    cm -static src/dog.c -o static/dog           && echo "(st) dog:      OK"     
-    cm -static src/whereami.c -o static/whereami && echo "(st) whereami: OK"
-    cm -static src/echo.c -o static/echo         && echo "(st) echo:     OK"
-    cm -static src/clear.c -o static/clear       && echo "(st) clear:    OK"
-    cm -static src/wait.c -o static/wait         && echo "(st) wait:     OK"
-    cm -static src/yes.c -o static/yes           && echo "(st) yes:      OK"
-    cm -static src/yesno.c -o static/yesno       && echo "(st) yesno:    OK"
-    cm -static src/mov.c -o static/mov           && echo "(st) mov:      OK"
-
+        for i in "${UTILS[@]}"; do
+            cm -static src/$i.c -o static/$i && printf "(st) %-15s OK\n" "$i:" || printf "(st) %-15s FAIL\n" "$i:"
+        done
+    fi
 
     # ZIP archivation
-    echo ""
-    echo "MAKING ZIP"
+    if [[ -z "${SKIP_ZIP:-}" ]]; then
+        echo ""
+        echo "MAKING ZIP"
+        make_zip
+    fi
 
-    zip -r src/all.zip src/*       -x src/all.zip
-    zip -r files/all.zip files/*   -x files/all.zip
-    zip -r static/all.zip static/* -x static/all.zip
-
+elif [[ "$1" = "zip" ]]; then
+    make_zip
 else
-    if [[ "$1" = "zip" ]]; then
-        zip -r src/all.zip src/*       -x src/all.zip
-        zip -r files/all.zip files/*   -x files/all.zip
-        zip -r static/all.zip static/* -x static/all.zip
-    else
-        echo "compiling $1..."
-        cm src/$1.c -o files/$1 && echo "(dn) success"
-        cm -static src/$1.c -o static/$1 && echo "(st) success"
+
+    echo "compiling $1..."
+    cm src/$1.c -o files/$1 && echo "(dn) success" || echo "(dn) fail"
+    if [[ -z "${SKIP_STATIC:-}" ]]; then
+        cm -static src/$1.c -o static/$1 && echo "(st) success" || echo "(st) fail"
     fi
 fi

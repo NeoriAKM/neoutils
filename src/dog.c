@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
         for (int i = 1; i < argc; i++) {
             if (strcmp(argv[i], "--version") == 0) {            // version
                 printf("----------------------------------------------\n");
-                printf("dog v1.0 | By %sNeori%s | Made for %sProgwiLinux%s\n",
+                printf("dog v1.1 | By %sNeori%s | Made for %sProgwiLinux%s\n",
                     color2, endc, color2, endc);
                 printf("----------------------------------------------\n");
                 printf("Program for reading a files.\n");
@@ -55,7 +55,7 @@ int main(int argc, char *argv[]) {
                 printf(" -a      all        removing barier to files 500+ stringlines\n");
                 printf(" --version          prints info about dog\n");
                 printf(" --help             opening this reference\n");
-                printf(" -n      nums       removing numbers for strings\n");
+                printf(" -n     nums        add string nums on left side\n");
                 printf(" -e    empty        removing empty strings");
                 return 0;
             } else if (argv[i][0] != '-') {
@@ -82,8 +82,8 @@ int main(int argc, char *argv[]) {
 
         if (empty == 1 && strcmp(line, "\n") == 0) {line_num++; continue;}
 
-        if (nums == 1) {printf("%s", line);}
-        else {printf("%i. %s", line_num, line);}
+        if (nums == 0) {printf("%s", line);}
+        else {printf("%s%i%s. %s", color1, line_num, endc, line);}
 
         line_num++;
 

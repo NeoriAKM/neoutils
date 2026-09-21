@@ -1,95 +1,41 @@
-# (EN) NeoUtils - simple Coreutils on C
+Neoutils 21.80
+License INLv1
 
-**By:** NeoriGG
-**Version:** 28.78
-**License:** INLv1
+# NeoUtils - Coreutils on C
 
-Utilities-pack, thats doing the same, whats a classic GNU CoreUtils. Something between GNU CoreUtils and BusyBox.
----
-## Whats in the NeoUtils
-### lsdr - analog of ls
+**Hello everyone!** This is *Neoutils*. Coreutils, thats I **started** writing 29 June 2026, and **released** 14 July 2026. It is been made **for *Progwilinux* distribution**.
 
-I am rewrote classic command ls from scratch. She is shows files & folders in working directory
-She is:
+[link to RU](README.RU.md)
+[web site](https://neoriakm.github.io/neoutils)
 
-- Weight 15 KB (GNU ls — ~162 KB).
-- Working **without** `stdio.h` & `string.h`. Only `unistd.h`
-- Using an own `prints` & `strcmp`.
-- Have a many flags, about his I made **--help** for every command
+## set of utils
 
-#### ***If you need balance functionality, weight and dependencies - this lsdr is your***
----
-### dog - analog of cat
+Neoutils have a **9 utils**: add, clear, dog, echo, lsdr, mov, wait, whereami, yes, yesno.
 
-dog - is an analog of cat, but with additions
-Typing a file content
-simple in using:
+Every utilitie have an analog from GNU Coreutils. lsdr = ls, dog = cat, whereami = pwd.
 
-```bash
-dog file.txt
-```
+I can boast that my utilities are 15 KiB each.
 
-Working fast, weight a small, many flags:
-- --help & --version : base
-- -n : disabling numeration
-- -e : skip empty stringlines
-- -a : disabling limit in 500 stringlines
----
-### whereami - analog of pwd
+## How to install
 
-It shows which folder you are currently in the full path to the current directory.
-The command is so simple that I didn't even clutter it with flags.
-There are only `--help` and `--version`, you can't do without those.
+Just install your version on [website](https://neoriakm.github.io/neoutils), and unzip file `all.zip`.
 
-For simplicity, you can create an alias: `whereami='wai'`
+## Requiriments
 
----
-### echo - analog of echo
+- glibc.
+- OS: Linux
 
-Typing transmitted text.
-Working an usual:
 
-```bash
-echo Hello, world!
-# output: Hello, world!
-```
-It's... just typing. Yes.
-inside - own strlen, strcmp, prints.
-I tryed add flags, but... I can't
+> if you have not glibc, just install static files.weights more, but working anywhere.
 
----
-### clear - analog of clear
+> **Maybe** other OSs can run static version
 
-clearing terminal screen.
-Its all. Just clearing.
+## Last update
 
----
-### time - timer for srcipts (analog of sleep)
+### 21.80 (21 Sep 2026)
+- **New util**: add (analog of GNU touch)
+- **Changed util**: dog. Logic of flag `-n` flipped. And number outs with green color
+- **README updated**: Full rewrited from scratch, because old been..... so old?
 
-Thats utilite was born in needness doing a pauses in scripts.
-It does not output the time like `date`; it waits for the specified amount of time and then exits.
-
-flags:
-- -s : number in seconds
-- -m : number in minutes
-- -u : number in microseconds
-
-Work:
-```bash
-time -s 5   # wait 5 seconds
-time -m 1   # wait 1 minute
-```
-Idealy for scripts, where you need a delay
-
----
-## Requirements
-### OS
-Linux or another UNIX-like OS is recommended. If `glibc` is missing, download the static binary.
-### C Compiler
-Any working compiler (though I recommend GCC for running `build.sh`).
-
-## Installation
-
-Download the ready-made files from the [NeoUtils website](https://neoriakm.github.io/neoutils).
-
-Files aviable in the [NeoUtils](https://neoriakm.github.io/neoutils) site. Static builds, if you haven't `glibc`, and dinamic, if have, but you want tosave few hundred KiB
+### 13.80 (13 Sep 2026)
+Web site full redisine. Blue theme switched to BW contrast theme. Added RU and EN translate.
