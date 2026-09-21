@@ -1,4 +1,5 @@
 Neoutils 21.80
+
 License INLv1
 
 # NeoUtils - Coreutils on C
@@ -6,6 +7,7 @@ License INLv1
 **Hello everyone!** This is *Neoutils*. Coreutils, thats I **started** writing 29 June 2026, and **released** 14 July 2026. It is been made **for *Progwilinux* distribution**.
 
 [link to RU](README.RU.md)
+
 [web site](https://neoriakm.github.io/neoutils)
 
 ## set of utils
@@ -36,6 +38,8 @@ Just install your version on [website](https://neoriakm.github.io/neoutils), and
 - **New util**: add (analog of GNU touch)
 - **Changed util**: dog. Logic of flag `-n` flipped. And number outs with green color
 - **README updated**: Full rewrited from scratch, because old been..... so old?
+- **Build script**: Rewrote from scratch **too**. Now its better for 100x times
 
 ### 13.80 (13 Sep 2026)
+
 Web site full redisine. Blue theme switched to BW contrast theme. Added RU and EN translate.
