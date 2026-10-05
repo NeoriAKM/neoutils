@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
     for (int i = 1; i < argc; i++) {
         if (cmp(argv[i], "--version") == 0) {        // version
             prints("----------------------------------------------\n");
-            prints("add v0.1 | by "); prints(color2); prints("Neori");
+            prints("add v0.1.1 | by "); prints(color2); prints("Neori");
             prints(color_end); prints(" | Made for "); prints(color2);
             prints("ProgwiLinux\n"); prints(color_end);
             prints("----------------------------------------------\n");
@@ -52,8 +52,7 @@ int main(int argc, char* argv[]) {
             prints(" --help             opening this text\n");
             return 0;
         } else {
-            if (argv[i][0] != '-') filename = argv[i];
-            fc_flag++;
+            if (argv[i][0] != '-') {filename = argv[i]; fc_flag++;}
             if (fc_flag > 1) {
                 prints("Sorry, but you can make only 1 file per command.\n");
                 return 1;

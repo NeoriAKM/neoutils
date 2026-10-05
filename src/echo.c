@@ -13,9 +13,9 @@ int strcmp(const char *s1, const char *s2) {
 }
 
 
-char* color1 = "\033[32m";
-char* color2 = "\033[34m";
-char* color_end = "\033[0m";
+const char* color1 = "\033[32m";
+const char* color2 = "\033[34m";
+const char* color_end = "\033[0m";
 
 int main(int argc, char *argv[]) {
 
@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--version") == 0) {        // version
             prints("----------------------------------------------\n");
-            prints("echo v1.2.1 | by "); prints(color2); prints("Neori");
+            prints("echo v1.2.2 | by "); prints(color2); prints("Neori");
             prints(color_end); prints(" | Made for "); prints(color2);
             prints("ProgwiLinux\n"); prints(color_end);
             prints("----------------------------------------------\n");

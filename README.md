@@ -12,15 +12,19 @@ License INLv1
 
 ## set of utils
 
-Neoutils have a **9 utils**: add, clear, dog, echo, lsdr, mov, wait, whereami, yes, yesno.
+Neoutils have a **10 utils**! Beautiful number. add, clear, dog, echo, lsdr, mov, wait, whereami, yes, yesno, rem.
 
 Every utilitie have an analog from GNU Coreutils. lsdr = ls, dog = cat, whereami = pwd.
 
-I can boast that my utilities are 15 KiB each.
+I can boast that my utilities are weights 15 KiB each. ZIP archive have a 65 KB (Static - 8 MB ): )
 
 ## How to install
 
 Just install your version on [website](https://neoriakm.github.io/neoutils), and unzip file `all.zip`.
+
+### OR
+
+Or you can install zip archive in directory 'files' in repository.
 
 ## Requiriments
 
@@ -33,6 +37,11 @@ Just install your version on [website](https://neoriakm.github.io/neoutils), and
 > **Maybe** other OSs can run static version
 
 ## Last update
+
+### 1.0 (5 Oct 2026)
+- **New util**: rem (removing files)
+- **Every util** got a **little update**. Main target to update - **make colors to the constants**
+- I make `nugl.h`, thats have all definitions to making utils
 
 ### 21.80 (21 Sep 2026)
 - **New util**: add (analog of GNU touch)

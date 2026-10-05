@@ -1,17 +1,4 @@
-#include <unistd.h>
-
-#define prints(s) write(1, s, strlen(s))
-
-size_t strlen(const char *s) {
-    const char *p = s;
-    while (*p) p++;
-    return p - s;
-}
-
-int strcmp(const char *s1, const char *s2) {
-    while (*s1 && *s2 && *s1 == *s2) {s1++; s2++;}
-    return *(unsigned char *)s1 - *(unsigned char *)s2;
-}
+#include "nugl.h"
 
 int read_char() {
     char ch;
@@ -32,7 +19,7 @@ int main(int argc, char *argv[]) {
     char* question;
 
     for (int i = 1; i < argc; i++) {
-        if (strcmp(argv[i], "--version") == 0) {        // version
+        if (cmp(argv[i], "--version") == 0) {        // version
             prints("----------------------------------------------\n");
             prints("yesno v0.1 | by "); prints(color2); prints("Neori");
             prints(color_end); prints(" | Made for "); prints(color2);
@@ -42,9 +29,9 @@ int main(int argc, char *argv[]) {
             prints("More: https://neoriakm.github.io/neoutils\n");
             prints("----------------------------------------------\n");
             return 0;
-        } else if (strcmp(argv[i], "-n") == 0) {    // no
+        } else if (cmp(argv[i], "-n") == 0) {    // no
             no = 1;
-        } else if (strcmp(argv[i], "--help") == 0) {    // help
+        } else if (cmp(argv[i], "--help") == 0) {    // help
             prints("                     ");
             prints(color2);
             prints("Usage of yesno\n");
@@ -58,8 +45,9 @@ int main(int argc, char *argv[]) {
             prints(color1);
             prints("--------------------------------------------------------\n");
             prints(color_end);
-            prints(" --version          prints info about yesno\n");
-            prints(" --help             opening this text\n");
+            prints(" --version   prints info about yesno\n");
+            prints(" --help      opening this text\n");
+            prints(" -n          making n-choice main\n");
             return 0;
         } else {
             if (argv[i][0] != '-') {
@@ -78,13 +66,9 @@ int main(int argc, char *argv[]) {
     if (no == 1) prints("\n[y/N]");
     else prints("\n[Y/n]");
     int answer = read_char();
-    if (answer == 'y' || answer == 'Y') {
-        return 0;
-    } else if (answer == 'n' || answer == 'N') {
-        return 1;
-    } else {
-        return no ? 1 : 0;
-    }
 
+    if (answer == 'y' || answer == 'Y') return 0;
+    else if (answer=='n'||answer=='N')  return 1;
+    else                                return no ? 1 : 0;
     return -1;
 }

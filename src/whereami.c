@@ -1,7 +1,6 @@
 #include <stdio.h>
-#include <string.h>
-#include <unistd.h>
 #include <limits.h>
+#include "nugl.h"
 
 int main(int argc, char *argv[]) {
     char cwd[PATH_MAX];
@@ -12,16 +11,16 @@ int main(int argc, char *argv[]) {
 
     // флаги
     for (int i = 1; i < argc; i++) {
-        if (strcmp(argv[i], "--version") == 0) {        // version
+        if (cmp(argv[i], "--version") == 0) {        // version
             printf("----------------------------------------------\n");
-            printf("WhereamI v0.1.1 | By %sNeori%s | Made for %sProgwiLinux%s\n",
+            printf("WhereamI v0.1.2 | By %sNeori%s | Made for %sProgwiLinux%s\n",
                 color2, endc, color2, endc);
             printf("----------------------------------------------\n");
             printf("Program for getting a user directory\n");
             printf("Analog of 'pwd'\n");
             printf("----------------------------------------------\n");
             return 0;
-        } else if (strcmp(argv[i], "--help") == 0 || strcmp(argv[i], "-h") == 0) { // help
+        } else if (cmp(argv[i], "--help") == 0 || cmp(argv[i], "-h") == 0) { // help
             printf("                     %sUsage of whereami%s\n", color2, endc);
             printf("%s--------------------------------------------------------%s\n",
                 color1, endc);

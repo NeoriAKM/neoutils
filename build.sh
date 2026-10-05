@@ -11,7 +11,7 @@ make_zip() {
 }
 
 
-UTILS=(lsdr dog whereami clear wait yes yesno mov add)
+UTILS=(lsdr dog whereami clear wait yes yesno mov add rem)
 
 mkdir -p files static
 
@@ -28,11 +28,9 @@ fi
 
 ###################################################
 ###################################################
-###################################################
 
 if [[ $# -eq 0 ]]; then
 
-    # dinamic
     echo "DINAMIC COMPILATION"
 
     for i in "${UTILS[@]}"; do

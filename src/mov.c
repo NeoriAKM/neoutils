@@ -1,27 +1,14 @@
 #include <stdio.h>
-#include <unistd.h>
 #include <sys/stat.h>
-
-size_t len(const char *s) {
-    const char *p = s;
-    while (*p) p++;
-    return p - s;
-}
-
-int cmp(const char *s1, const char *s2) {
-    while (*s1 && *s2 && *s1 == *s2) {s1++; s2++;}
-    return *(unsigned char *)s1 - *(unsigned char *)s2;
-}
-
-static void prints(const char* text) {write(1, text, len(text));}
+#include "nugl.h"
 
 
-char* color1 = "\033[32m";
-char* color2 = "\033[34m";
-char* color_end = "\033[0m";
+const char* color1 = "\033[32m";
+const char* color2 = "\033[34m";
+const char* color_end = "\033[0m";
 
-char* green = "\033[32m";
-char* red = "\033[31m";
+const char* green = "\033[32m";
+const char* red = "\033[31m";
 
 int main(int argc, char* argv[]) {
     
@@ -34,7 +21,7 @@ int main(int argc, char* argv[]) {
     for (int i = 1; i < argc; i++) {
         if (cmp(argv[i], "--version") == 0) {        // version
             prints("----------------------------------------------\n");
-            prints("mov 0.1 | by "); prints(color2); prints("Neori");
+            prints("mov 0.1.1 | by "); prints(color2); prints("Neori");
             prints(color_end); prints(" | Made for "); prints(color2);
             prints("ProgwiLinux\n"); prints(color_end);
             prints("----------------------------------------------\n");
@@ -84,7 +71,7 @@ int main(int argc, char* argv[]) {
 
     struct stat st;
     if (stat(new_path, &st) == 0 && S_ISDIR(st.st_mode)) {
-        
+        // To be continuedconst 
     }
 
 

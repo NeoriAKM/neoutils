@@ -1,37 +1,16 @@
 #include <dirent.h>
-#include <unistd.h>
 #include <sys/stat.h>
+#include "nugl.h"
 
 #define BUFFER_SIZE 65535
 
-size_t len(const char *s) {
-    const char *p = s;
-    while (*p) p++;
-    return p - s;
-}
+const char* color1 = "\033[32m";
+const char* color2 = "\033[34m";
+const char* yellow = "\033[33m";
+const char* red = "\033[31m";
+const char* fat = "\033[1m";
 
-int cmp(const char *s1, const char *s2) {
-    while (*s1 && *s2 && *s1 == *s2) {s1++; s2++;}
-    return *(unsigned char *)s1 - *(unsigned char *)s2;
-}
-
-static void prints(const char* text) {write(1, text, len(text));}
-
-static void println(const char* text)
-{write(1, text, len(text)); write(1, "\n", 1);}
-
-static void printi(int n) {
-    char buf[32];
-    int i = 0;
-    int negative = 0;
-    
-    // if (n < 0) {negative = 1; n = -n;}
-    unsigned int u = n < 0 ? -(unsigned int)n : n;
-    do {buf[i++] = '0' + u % 10;} while (u /= 10);
-
-    if (negative) {buf[i++] = '-';}
-    while (i--) {write(1, &buf[i], 1);}
-}
+const char* color_end = "\033[0m";
 
 DIR *dir;
 struct dirent *entry;
@@ -40,17 +19,10 @@ char* path = ".";
 int output_delay = 70000;
 int addition = 0;
 
-char* color1 = "\033[32m";
-char* color2 = "\033[34m";
-char* yellow = "\033[33m";
-char* red = "\033[31m";
-char* fat = "\033[1m";
-
-char* color_end = "\033[0m";
 int color_switch = 0;
 int count = 1;
 
-// флаги
+// Flags
 int showall = 0;
 int fast = 0;
 int numerate = 0;
@@ -92,7 +64,7 @@ int main(int argc, char *argv[]) {
     for (int i = 1; i < argc; i++) {
         if (cmp(argv[i], "--version") == 0) {        // version
             prints("----------------------------------------------\n");
-            prints("LSDR v1.4 | by "); prints(color2); prints("Neori");
+            prints("LSDR v1.5 | by "); prints(color2); prints("Neori");
             prints(color_end); prints(" | Made for "); prints(color2);
             prints("ProgwiLinux\n"); prints(color_end);
             prints("----------------------------------------------\n");

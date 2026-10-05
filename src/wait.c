@@ -1,38 +1,4 @@
-// #include <>
-#include <unistd.h>
-
-size_t len(const char *s) {
-    const char *p = s;
-    while (*p) p++;
-    return p - s;
-}
-
-int cmp(const char *s1, const char *s2) {
-    while (*s1 && *s2 && *s1 == *s2) {s1++; s2++;}
-    return *(unsigned char *)s1 - *(unsigned char *)s2;
-}
-
-int toint(const char *str) {
-    int result = 0;
-    int i = 0;
-    while (str[i] >= '0' && str[i] <= '9') {
-        result = result * 10 + (str[i] - '0');
-        i++;
-    }
-    return result;
-}
-
-static void prints(const char* text) {write(1, text, len(text));}
-static void printi(int n) {
-    char buf[12];
-    int i = 0;
-    int negative = 0;
-    if (n < 0) {negative = 1; n = -n;}
-    do {buf[i++] = '0' + n % 10;}
-    while (n /= 10);
-    if (negative) {buf[i++] = '-';}
-    while (i--) {write(1, &buf[i], 1);}
-}
+#include "nugl.h"
 
 char* color1 = "\033[32m";
 char* color2 = "\033[34m";
@@ -50,7 +16,7 @@ int main(int argc, char *argv[]) {
     for (int i = 1; i < argc; i++) {
         if (cmp(argv[i], "--version") == 0) {        // version
             prints("----------------------------------------------\n");
-            prints("time v0.1 | by "); prints(color2); prints("Neori");
+            prints("time v0.2 | by "); prints(color2); prints("Neori");
             prints(color_end); prints(" | Made for "); prints(color2);
             prints("ProgwiLinux\n"); prints(color_end);
             prints("----------------------------------------------\n");
