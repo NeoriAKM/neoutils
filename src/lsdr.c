@@ -1,190 +1,52 @@
+// ---------------------------------------- //
+// lsdr: shows list of files from directory //
+//                                          //
+//        Author: NeoriAKM                  //
+// ---------------------------------------- //
+
+#include <string.h>
+#include <stdio.h>
 #include <dirent.h>
-#include <sys/stat.h>
-#include "nugl.h"
 
-#define BUFFER_SIZE 65535
+struct flags {
+    int all;
+    int numeration;
+};
 
-const char* color1 = "\033[32m";
-const char* color2 = "\033[34m";
-const char* yellow = "\033[33m";
-const char* red = "\033[31m";
-const char* fat = "\033[1m";
+int main(int argc, char* argv[]) {
+    struct flags flag;
 
-const char* color_end = "\033[0m";
+    flag.all = 0;
+    flag.numeration = 0;
 
-DIR *dir;
-struct dirent *entry;
-char* path = ".";
+    char* dirname = ".";
 
-int output_delay = 70000;
-int addition = 0;
-
-int color_switch = 0;
-int count = 1;
-
-// Flags
-int showall = 0;
-int fast = 0;
-int numerate = 0;
-
-int nocolor = 0;
-int nofat = 0;
-
-void numeration_func(void) {
-    if (numerate == 1) {
-        if (color_switch == 0) prints(color2);
-        else if (color_switch == 1) prints(color1);
-        printi(count);
-        prints(". ");
-    }
-}
-
-void monster_out(void) {
-    if (color_switch == 1) {
-        numeration_func();
-        prints(color2);
-        prints(entry->d_name);
-        if (!nocolor) color_switch = 0;
-    } else if (color_switch == 0) {
-        numeration_func();
-        prints(color1);
-        prints(entry->d_name);
-        if (!nocolor) color_switch = 1;
-    } else if (color_switch == 666) { // hehehehehe
-
-        if (numerate == 1) {printi(count); prints(". ");prints(entry->d_name);}
-        // X. filename
-        else if (numerate == 0) {prints(entry->d_name);}
-        // filename
-    }
-}
-
-int main(int argc, char *argv[]) {
-
-    for (int i = 1; i < argc; i++) {
-        if (cmp(argv[i], "--version") == 0) {        // version
-            prints("----------------------------------------------\n");
-            prints("LSDR v1.5 | by "); prints(color2); prints("Neori");
-            prints(color_end); prints(" | Made for "); prints(color2);
-            prints("ProgwiLinux\n"); prints(color_end);
-            prints("----------------------------------------------\n");
-            prints("Basic program to show list of the\n");
-            prints("content from dir. Analog of 'ls'\n");
-            prints("More: https://neoriakm.github.io/neoutils\n");
-            prints("----------------------------------------------\n");
-            return 0;
-        } else if (cmp(argv[i], "-a") == 0) {        // all
-            showall = 1;
-        } else if (cmp(argv[i], "-f") == 0 || cmp(argv[i], "--fast") == 0) {  // fast
-            fast = 1;
-        } else if (cmp(argv[i], "-n") == 0 || cmp(argv[i], "--numerate") == 0) {  // numerate
-            numerate = 1;
-        } else if (cmp(argv[i], "-no-color") == 0) {  // no color
-            nocolor = 1;
-        } else if (cmp(argv[i], "-no-fat") == 0) {  // no fat
-            nofat = 1;
-        } else if (cmp(argv[i], "--help") == 0) {    // help
-            prints("                     ");
-            prints(color2);
-            prints("Usage of lsdr\n\n");
-            prints(color1);
-            prints("--------------------------------------------------------\n");
-            prints(color_end);
-            prints("lsdr <path>         shows folders and files from that folder\n");
-            prints("lsdr                shows content from user folder\n\n");
-            prints("                    ");
-            prints(color2);
-            prints("Flags/arguments\n");
-            prints(color1);
-            prints("--------------------------------------------------------\n");
-            prints(color_end);
-            prints(" -a                 shows all content, even hiden\n");
-            prints(" --version          prints info about LSDR\n");
-            prints(" -f     --fast      disables delay between items\n");
-            // prints(" -l                 shows size (files) and file count (dirs)\n");
-            prints("   -no-color        disabling color-print\n");
-            prints("   -no-fat          disabling print folders as fat\n");
-            prints(" -n    --numerate   adds numerarion\n");
-            prints(" --help             opening this text\n");
-            return 0;
+    if (argc > 1) for (int i=1; i<argc; i++) {
+        if (argv[i][0] == '-') {
+            if      (strcmp(argv[i], "-a")==0) flag.all = 1;
+            else if (strcmp(argv[i], "-n")==0) flag.numeration = 1;
         } else {
-            path = argv[i];
+            if (strcmp(dirname, ".")==0) dirname = argv[i];
+            else printf("[WARN] type directory name only once\n");
         }
     }
 
-
-    dir = opendir(path);
-
+    DIR* dir = opendir(dirname);
     if (dir == NULL) {
-        prints("No such directory, sorry");
+        printf("[ERROR] Couldn't open directory");
         return 1;
     }
-
+    struct dirent* entry;
+    int findex = 1;
     while ((entry = readdir(dir)) != NULL) {
+        if (entry->d_name[0] == '.' && flag.all == 0) continue;
 
-        if (cmp(entry->d_name, ".") == 0 || cmp(entry->d_name, "..") == 0) {continue;}
-        if (!showall && entry->d_name[0] == '.') continue;
-        
-        //----------------------------- обработка пути ----------------------------------
-        struct stat file_stat;
-        char full_path[512];
+        if (flag.numeration) printf("%i. ", findex);
 
-        size_t path_len = len(path);
-        size_t name_len = len(entry->d_name);
-
-        if (path_len + name_len + 1 >= sizeof(full_path)) {
-            prints(red);
-            prints("ERROR: Path too long, skipping: ");
-            numeration_func();
-            prints(entry->d_name);
-            prints("\n");
-            continue;
-        }
-        char *p = full_path;
-        char *src;
-
-        src = path;
-        while (*src) *p++ = *src++;
-        *p++ = '/';
-
-        src = entry->d_name;
-        while (*src) *p++ = *src++;
-        *p = '\0';
-        //-------------------------------------------------------------------------------
-        // ПРоверка на директорию. И вообще проверка флага жирности. Norton Жир
-        if (nofat == 0) {
-            int is_dir = 0;
-            if (stat(full_path, &file_stat) == 0) {
-                is_dir = S_ISDIR(file_stat.st_mode);
-            } else {
-                prints(yellow);
-                prints("WARNING: Cannot get stat\n");
-                prints(color_end);
-                numeration_func();
-                prints(entry->d_name);
-                prints("\n");
-                continue;
-            }
-            if (is_dir) prints(fat);
-        }   // ОКОНЧАНИЕ ПРОВЕРКИ
-        if (nocolor == 1) color_switch = 666; // heheheheheehehehh
-
-        monster_out();
-
-        count++;
-        prints(color_end);
-	    prints("\n");
-	    if (!fast) {
-            usleep(output_delay);
-            if (output_delay > 0) output_delay -= (200 + addition);
-            if (output_delay < 0) output_delay = 0;
-            addition += 10;
-        }
+        printf("%s\n", entry->d_name);
+        findex++;
     }
 
-    if (closedir(dir) != 0) {
-        prints(yellow);
-        prints("WARNING: failed to close directory");
-    }
+    closedir(dir);
     return 0;
 }

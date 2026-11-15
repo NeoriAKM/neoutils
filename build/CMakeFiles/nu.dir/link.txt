@@ -1,0 +1,1 @@
+/usr/bin/cc -Wl,--dependency-file=CMakeFiles/nu.dir/link.d CMakeFiles/nu.dir/src/lsdr.c.o -o nu

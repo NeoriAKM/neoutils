@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/akm/doc/neoutils/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

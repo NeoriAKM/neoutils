@@ -1,0 +1,1 @@
+/usr/bin/cc -Wl,--dependency-file=CMakeFiles/lsdr.dir/link.d CMakeFiles/lsdr.dir/src/lsdr.c.o -o lsdr
