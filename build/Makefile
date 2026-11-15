@@ -175,6 +175,19 @@ echo/fast:
 .PHONY : echo/fast
 
 #=============================================================================
+# Target rules for targets named false
+
+# Build rule for target.
+false: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 false
+.PHONY : false
+
+# fast build rule for target.
+false/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/false.dir/build.make CMakeFiles/false.dir/build
+.PHONY : false/fast
+
+#=============================================================================
 # Target rules for targets named lsdr
 
 # Build rule for target.
@@ -186,6 +199,58 @@ lsdr: cmake_check_build_system
 lsdr/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lsdr.dir/build.make CMakeFiles/lsdr.dir/build
 .PHONY : lsdr/fast
+
+#=============================================================================
+# Target rules for targets named sleep
+
+# Build rule for target.
+sleep: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 sleep
+.PHONY : sleep
+
+# fast build rule for target.
+sleep/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sleep.dir/build.make CMakeFiles/sleep.dir/build
+.PHONY : sleep/fast
+
+#=============================================================================
+# Target rules for targets named true
+
+# Build rule for target.
+true: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 true
+.PHONY : true
+
+# fast build rule for target.
+true/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/true.dir/build.make CMakeFiles/true.dir/build
+.PHONY : true/fast
+
+#=============================================================================
+# Target rules for targets named wai
+
+# Build rule for target.
+wai: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 wai
+.PHONY : wai
+
+# fast build rule for target.
+wai/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wai.dir/build.make CMakeFiles/wai.dir/build
+.PHONY : wai/fast
+
+#=============================================================================
+# Target rules for targets named yes
+
+# Build rule for target.
+yes: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 yes
+.PHONY : yes
+
+# fast build rule for target.
+yes/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yes.dir/build.make CMakeFiles/yes.dir/build
+.PHONY : yes/fast
 
 src/echo.o: src/echo.c.o
 .PHONY : src/echo.o
@@ -211,6 +276,30 @@ src/echo.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/echo.dir/build.make CMakeFiles/echo.dir/src/echo.c.s
 .PHONY : src/echo.c.s
 
+src/false.o: src/false.c.o
+.PHONY : src/false.o
+
+# target to build an object file
+src/false.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/false.dir/build.make CMakeFiles/false.dir/src/false.c.o
+.PHONY : src/false.c.o
+
+src/false.i: src/false.c.i
+.PHONY : src/false.i
+
+# target to preprocess a source file
+src/false.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/false.dir/build.make CMakeFiles/false.dir/src/false.c.i
+.PHONY : src/false.c.i
+
+src/false.s: src/false.c.s
+.PHONY : src/false.s
+
+# target to generate assembly for a file
+src/false.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/false.dir/build.make CMakeFiles/false.dir/src/false.c.s
+.PHONY : src/false.c.s
+
 src/lsdr.o: src/lsdr.c.o
 .PHONY : src/lsdr.o
 
@@ -235,6 +324,102 @@ src/lsdr.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lsdr.dir/build.make CMakeFiles/lsdr.dir/src/lsdr.c.s
 .PHONY : src/lsdr.c.s
 
+src/sleep.o: src/sleep.c.o
+.PHONY : src/sleep.o
+
+# target to build an object file
+src/sleep.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sleep.dir/build.make CMakeFiles/sleep.dir/src/sleep.c.o
+.PHONY : src/sleep.c.o
+
+src/sleep.i: src/sleep.c.i
+.PHONY : src/sleep.i
+
+# target to preprocess a source file
+src/sleep.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sleep.dir/build.make CMakeFiles/sleep.dir/src/sleep.c.i
+.PHONY : src/sleep.c.i
+
+src/sleep.s: src/sleep.c.s
+.PHONY : src/sleep.s
+
+# target to generate assembly for a file
+src/sleep.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sleep.dir/build.make CMakeFiles/sleep.dir/src/sleep.c.s
+.PHONY : src/sleep.c.s
+
+src/true.o: src/true.c.o
+.PHONY : src/true.o
+
+# target to build an object file
+src/true.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/true.dir/build.make CMakeFiles/true.dir/src/true.c.o
+.PHONY : src/true.c.o
+
+src/true.i: src/true.c.i
+.PHONY : src/true.i
+
+# target to preprocess a source file
+src/true.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/true.dir/build.make CMakeFiles/true.dir/src/true.c.i
+.PHONY : src/true.c.i
+
+src/true.s: src/true.c.s
+.PHONY : src/true.s
+
+# target to generate assembly for a file
+src/true.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/true.dir/build.make CMakeFiles/true.dir/src/true.c.s
+.PHONY : src/true.c.s
+
+src/wai.o: src/wai.c.o
+.PHONY : src/wai.o
+
+# target to build an object file
+src/wai.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wai.dir/build.make CMakeFiles/wai.dir/src/wai.c.o
+.PHONY : src/wai.c.o
+
+src/wai.i: src/wai.c.i
+.PHONY : src/wai.i
+
+# target to preprocess a source file
+src/wai.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wai.dir/build.make CMakeFiles/wai.dir/src/wai.c.i
+.PHONY : src/wai.c.i
+
+src/wai.s: src/wai.c.s
+.PHONY : src/wai.s
+
+# target to generate assembly for a file
+src/wai.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/wai.dir/build.make CMakeFiles/wai.dir/src/wai.c.s
+.PHONY : src/wai.c.s
+
+src/yes.o: src/yes.c.o
+.PHONY : src/yes.o
+
+# target to build an object file
+src/yes.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yes.dir/build.make CMakeFiles/yes.dir/src/yes.c.o
+.PHONY : src/yes.c.o
+
+src/yes.i: src/yes.c.i
+.PHONY : src/yes.i
+
+# target to preprocess a source file
+src/yes.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yes.dir/build.make CMakeFiles/yes.dir/src/yes.c.i
+.PHONY : src/yes.c.i
+
+src/yes.s: src/yes.c.s
+.PHONY : src/yes.s
+
+# target to generate assembly for a file
+src/yes.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yes.dir/build.make CMakeFiles/yes.dir/src/yes.c.s
+.PHONY : src/yes.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -248,13 +433,33 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... echo"
+	@echo "... false"
 	@echo "... lsdr"
+	@echo "... sleep"
+	@echo "... true"
+	@echo "... wai"
+	@echo "... yes"
 	@echo "... src/echo.o"
 	@echo "... src/echo.i"
 	@echo "... src/echo.s"
+	@echo "... src/false.o"
+	@echo "... src/false.i"
+	@echo "... src/false.s"
 	@echo "... src/lsdr.o"
 	@echo "... src/lsdr.i"
 	@echo "... src/lsdr.s"
+	@echo "... src/sleep.o"
+	@echo "... src/sleep.i"
+	@echo "... src/sleep.s"
+	@echo "... src/true.o"
+	@echo "... src/true.i"
+	@echo "... src/true.s"
+	@echo "... src/wai.o"
+	@echo "... src/wai.i"
+	@echo "... src/wai.s"
+	@echo "... src/yes.o"
+	@echo "... src/yes.i"
+	@echo "... src/yes.s"
 .PHONY : help
 
 
