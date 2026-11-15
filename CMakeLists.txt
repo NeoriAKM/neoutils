@@ -15,6 +15,8 @@ foreach(SOURCE_FILE ${UTIL_SOURCES})
     get_filename_component(UTIL_NAME ${SOURCE_FILE} NAME_WE)
     add_executable(${UTIL_NAME} ${SOURCE_FILE})
     target_compile_options(${UTIL_NAME} PRIVATE ${COMMON_FLAGS})
+
+    install(TARGETS ${UTIL_NAME} DESTINATION bin)
 endforeach()
 
 # target_compile_options(nu PRIVATE -fsanitize=address -fno-omit-frame-pointer -g)

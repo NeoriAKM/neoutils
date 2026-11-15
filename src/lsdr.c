@@ -4,7 +4,7 @@
 //        Author: NeoriAKM                  //
 // ---------------------------------------- //
 
-#include <string.h>
+// #include <string.h>
 #include <stdio.h>
 #include <dirent.h>
 
@@ -20,20 +20,26 @@ int main(int argc, char* argv[]) {
     flag.numeration = 0;
 
     char* dirname = ".";
+    int dirname_typed = 0;
 
     if (argc > 1) for (int i=1; i<argc; i++) {
         if (argv[i][0] == '-') {
-            if      (strcmp(argv[i], "-a")==0) flag.all = 1;
-            else if (strcmp(argv[i], "-n")==0) flag.numeration = 1;
+            for (int j = 1; argv[i][j] != '\0'; j++) {
+                if      (argv[i][j] == 'a') flag.all = 1;
+                else if (argv[i][j] == 'n') flag.numeration = 1;
+            }
         } else {
-            if (strcmp(dirname, ".")==0) dirname = argv[i];
-            else printf("[WARN] type directory name only once\n");
+            if (!dirname_typed) {
+                dirname = argv[i];
+                dirname_typed = 1;
+            }
+            else fprintf(stderr, "[WARN] type directory name only once\n");
         }
     }
 
     DIR* dir = opendir(dirname);
     if (dir == NULL) {
-        printf("[ERROR] Couldn't open directory");
+        fprintf(stderr, "[ERROR] Couldn't open directory\n");
         return 1;
     }
     struct dirent* entry;
