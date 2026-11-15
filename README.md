@@ -1,59 +1,31 @@
-Neoutils 1.0.1
+![C](https://img.shields.io/badge/C-99-blue)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Last commit](https://img.shields.io/github/last-commit/NeoriAKM/qalam?color=red)
+![License](https://img.shields.io/badge/Last_README_update-15.11.2026-green)
 
-License INLv1.2
-
-# NeoUtils - Coreutils on C
-
-**Hello everyone!** This is *Neoutils*. Coreutils, thats I **started** writing 29 June 2026, and **released** 14 July 2026. It is been made **for *Progwilinux* distribution**.
-
-[link to RU README](README.RU.md)
-
-[website](https://neoriakm.github.io/neoutils)
-
-[Progwilinux repo](https://github.com/progwi0/progwilinux)
-
-## set of utils
-
-Neoutils have a **10 utils**! Beautiful number. add, clear, dog, echo, lsdr, mov, wait, whereami, yes, yesno, rem.
-
-Every utilitie have an analog from GNU Coreutils. lsdr = ls, dog = cat, whereami = pwd.
-
-I can boast that my utilities are weights 15 KiB each. ZIP archive have a 65 KB (Static - 8 MB ): )
-
-## How to install
-
-Just install your version on [website](https://neoriakm.github.io/neoutils), and unzip file `all.zip`.
-
-### OR
-
-Or you can install zip archive in directory 'files' in repository.
-
-## Requiriments
-
-- glibc.
-- OS: Linux
+# Neoutils 2.0
 
 
-> if you have not glibc, just install static files.weights more, but working anywhere.
+Insanely simple **coreutils**, written on **C**. Contains only 1 util - lsdr.
 
-> **Maybe** other OSs can run static version
+## Build
 
-## Last update
+```sh
+cmake -B build # once
+cmake --build build -j2 # build utils
+# moves executable to /usr/bin
+sudo cmake --install build
+```
 
-### 1.0.1 (6 Oct 2026)
-Information from README and website became an old, and this patch will fix it
+## run
 
-### 1.0 (5 Oct 2026)
-- **New util**: rem (removing files)
-- **Every util** got a **little update**. Main target to update - **make colors to the constants**
-- I make `nugl.h`, thats have all definitions to making utils
+Type a command name *(example: `lsdr`)*. It will run, because `sudo cmake --install build` moving executable files to `/usr/bin`
 
-### 21.80 (21 Sep 2026)
-- **New util**: add (analog of GNU touch)
-- **Changed util**: dog. Logic of flag `-n` flipped. And number outs with green color
-- **README updated**: Full rewrited from scratch, because old been..... so old?
-- **Build script**: Rewrote from scratch **too**. Now its better for 100x times
+---
 
-### 13.80 (13 Sep 2026)
-
-Web site full redisine. Blue theme switched to BW contrast theme. Added RU and EN translate.
+<div align="center">
+    Made by
+    <a href="https://github.com/neoriakm" style="color: cyan;">NeoriAKM</a>
+    For
+    <a href="https://github.com/progwi0"  style="color: lime;">Progwi0</a>
+</div>
