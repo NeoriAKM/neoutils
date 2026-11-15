@@ -1,14 +1,16 @@
-Neoutils 21.80
+Neoutils 1.0.1
 
-License INLv1
+License INLv1.2
 
 # NeoUtils - Coreutils on C
 
 **Hello everyone!** This is *Neoutils*. Coreutils, thats I **started** writing 29 June 2026, and **released** 14 July 2026. It is been made **for *Progwilinux* distribution**.
 
-[link to RU](README.RU.md)
+[link to RU README](README.RU.md)
 
-[web site](https://neoriakm.github.io/neoutils)
+[website](https://neoriakm.github.io/neoutils)
+
+[Progwilinux repo](https://github.com/progwi0/progwilinux)
 
 ## set of utils
 
@@ -37,6 +39,9 @@ Or you can install zip archive in directory 'files' in repository.
 > **Maybe** other OSs can run static version
 
 ## Last update
+
+### 1.0.1 (6 Oct 2026)
+Information from README and website became an old, and this patch will fix it
 
 ### 1.0 (5 Oct 2026)
 - **New util**: rem (removing files)
