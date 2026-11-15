@@ -1,7 +1,7 @@
 // ---------------------------------------- //
 // lsdr: shows list of files from directory //
 //                                          //
-//        Author: NeoriAKM                  //
+//            Author: NeoriAKM              //
 // ---------------------------------------- //
 
 // #include <string.h>
