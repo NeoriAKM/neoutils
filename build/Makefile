@@ -162,6 +162,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named addr
+
+# Build rule for target.
+addr: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 addr
+.PHONY : addr
+
+# fast build rule for target.
+addr/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/addr.dir/build.make CMakeFiles/addr.dir/build
+.PHONY : addr/fast
+
+#=============================================================================
 # Target rules for targets named dog
 
 # Build rule for target.
@@ -277,6 +290,30 @@ yes: cmake_check_build_system
 yes/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/yes.dir/build.make CMakeFiles/yes.dir/build
 .PHONY : yes/fast
+
+src/addr.o: src/addr.c.o
+.PHONY : src/addr.o
+
+# target to build an object file
+src/addr.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/addr.dir/build.make CMakeFiles/addr.dir/src/addr.c.o
+.PHONY : src/addr.c.o
+
+src/addr.i: src/addr.c.i
+.PHONY : src/addr.i
+
+# target to preprocess a source file
+src/addr.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/addr.dir/build.make CMakeFiles/addr.dir/src/addr.c.i
+.PHONY : src/addr.c.i
+
+src/addr.s: src/addr.c.s
+.PHONY : src/addr.s
+
+# target to generate assembly for a file
+src/addr.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/addr.dir/build.make CMakeFiles/addr.dir/src/addr.c.s
+.PHONY : src/addr.c.s
 
 src/dog.o: src/dog.c.o
 .PHONY : src/dog.o
@@ -506,6 +543,7 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... addr"
 	@echo "... dog"
 	@echo "... echo"
 	@echo "... false"
@@ -515,6 +553,9 @@ help:
 	@echo "... true"
 	@echo "... wai"
 	@echo "... yes"
+	@echo "... src/addr.o"
+	@echo "... src/addr.i"
+	@echo "... src/addr.s"
 	@echo "... src/dog.o"
 	@echo "... src/dog.i"
 	@echo "... src/dog.s"
