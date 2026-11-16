@@ -4,9 +4,10 @@
 //            Author: NeoriAKM              //
 // ---------------------------------------- //
 
-// #include <string.h>
+#include <string.h>
 #include <stdio.h>
 #include <dirent.h>
+#include "../lib/pub.h"
 
 struct flags {
     int all;
@@ -24,9 +25,24 @@ int main(int argc, char* argv[]) {
 
     if (argc > 1) for (int i=1; i<argc; i++) {
         if (argv[i][0] == '-') {
-            for (int j = 1; argv[i][j] != '\0'; j++) {
-                if      (argv[i][j] == 'a') flag.all = 1;
-                else if (argv[i][j] == 'n') flag.numeration = 1;
+
+            // full flag name
+            if (argv[i][1] == '-') {
+                if      (strcmp(argv[i], "--all")==0)        flag.all = 1;
+                else if (strcmp(argv[i], "--numeration")==0) flag.numeration = 1;
+
+                else if (strcmp(argv[i], "--help")==0) return help_msg("lsdr");
+
+                else printf(stderr, "[WARN] Unknown flag: %s\n", argv[i]);
+
+            // simple 1-letter flag
+            } else {
+                for (int j = 1; argv[i][j] != '\0'; j++) {
+                    if      (argv[i][j] == 'a') flag.all = 1;
+                    else if (argv[i][j] == 'n') flag.numeration = 1;
+
+                    else fprintf(stderr, "[WARN] Unknown flag: -%c\n", argv[i][j]);
+                }
             }
         } else {
             if (!dirname_typed) {

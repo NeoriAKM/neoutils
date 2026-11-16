@@ -1,8 +1,7 @@
-// ---------------------------------------- //
-// echo: prints text                        //
-//                                          //
-//           Author: NeoriAKM               //
-// ---------------------------------------- //
+     // ------------------- //
+    //  echo: prints text    //
+    //  Author: NeoriAKM     //
+     // ------------------- //
 
 // #include <string.h>
 #include <stdio.h>

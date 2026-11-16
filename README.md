@@ -9,16 +9,18 @@ Insanely simple **coreutils**, written on **C**. Contains **10** utils, but larg
 
 ## Utils
 
-| utilito | input | output | flags |
-|:-------:|:-----:|:------:|:-----:|
-| lsdr | dirname | files in this dir | -n: turning on numeration for files; -a: shows all files without outcludes |
-| dog | filename | file content (lines) | -n: line numeration |
+| utilito | input | output |
+|:-------:|:-----:|:------:|
+| lsdr | dirname | files in this dir |
+| dog | filename | file content (lines) |
 | echo | string | outs this string | - |
-| false & true | - | returns true or false | - |
+| false & true | - | returns true or false |
 | myname | - | out user name | - |
-| sleep | time (in int) | freezing console for [n] seconds | - |
-| yes | yyyyyy | yyyyyy | yyyyyy |
-| wai | - | out user directory | - |
+| sleep | time (in int) | freezing console for [n] seconds |
+| yes | yyyyyy | yyyyyy |
+| wai | - | out user directory |
+
+And about flags you can read on lauch program. But if program has no flags, nothing will hapenned
 
 ## Build
 
