@@ -28,12 +28,11 @@ int main(int argc, char* argv[]) {
 
             // full flag name
             if (argv[i][1] == '-') {
-                if      (strcmp(argv[i], "--all")==0)        flag.all = 1;
-                else if (strcmp(argv[i], "--numeration")==0) flag.numeration = 1;
+                if      (strcmp(argv[i], "--all"    )==0) flag.all = 1;
+                else if (strcmp(argv[i], "--nums"   )==0) flag.numeration = 1;
+                else if (strcmp(argv[i], "--help"   )==0) {help_msg("lsdr"); return 0;}
 
-                else if (strcmp(argv[i], "--help")==0) return help_msg("lsdr");
-
-                else printf(stderr, "[WARN] Unknown flag: %s\n", argv[i]);
+                else fprintf(stderr, "[WARN] Unknown flag: %s\n", argv[i]);
 
             // simple 1-letter flag
             } else {
