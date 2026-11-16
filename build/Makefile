@@ -162,6 +162,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named dog
+
+# Build rule for target.
+dog: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dog
+.PHONY : dog
+
+# fast build rule for target.
+dog/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/build
+.PHONY : dog/fast
+
+#=============================================================================
 # Target rules for targets named echo
 
 # Build rule for target.
@@ -199,6 +212,19 @@ lsdr: cmake_check_build_system
 lsdr/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lsdr.dir/build.make CMakeFiles/lsdr.dir/build
 .PHONY : lsdr/fast
+
+#=============================================================================
+# Target rules for targets named myname
+
+# Build rule for target.
+myname: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 myname
+.PHONY : myname
+
+# fast build rule for target.
+myname/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/build
+.PHONY : myname/fast
 
 #=============================================================================
 # Target rules for targets named sleep
@@ -251,6 +277,30 @@ yes: cmake_check_build_system
 yes/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/yes.dir/build.make CMakeFiles/yes.dir/build
 .PHONY : yes/fast
+
+src/dog.o: src/dog.c.o
+.PHONY : src/dog.o
+
+# target to build an object file
+src/dog.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/dog.c.o
+.PHONY : src/dog.c.o
+
+src/dog.i: src/dog.c.i
+.PHONY : src/dog.i
+
+# target to preprocess a source file
+src/dog.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/dog.c.i
+.PHONY : src/dog.c.i
+
+src/dog.s: src/dog.c.s
+.PHONY : src/dog.s
+
+# target to generate assembly for a file
+src/dog.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/src/dog.c.s
+.PHONY : src/dog.c.s
 
 src/echo.o: src/echo.c.o
 .PHONY : src/echo.o
@@ -323,6 +373,30 @@ src/lsdr.s: src/lsdr.c.s
 src/lsdr.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lsdr.dir/build.make CMakeFiles/lsdr.dir/src/lsdr.c.s
 .PHONY : src/lsdr.c.s
+
+src/myname.o: src/myname.c.o
+.PHONY : src/myname.o
+
+# target to build an object file
+src/myname.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/src/myname.c.o
+.PHONY : src/myname.c.o
+
+src/myname.i: src/myname.c.i
+.PHONY : src/myname.i
+
+# target to preprocess a source file
+src/myname.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/src/myname.c.i
+.PHONY : src/myname.c.i
+
+src/myname.s: src/myname.c.s
+.PHONY : src/myname.s
+
+# target to generate assembly for a file
+src/myname.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/src/myname.c.s
+.PHONY : src/myname.c.s
 
 src/sleep.o: src/sleep.c.o
 .PHONY : src/sleep.o
@@ -432,13 +506,18 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... dog"
 	@echo "... echo"
 	@echo "... false"
 	@echo "... lsdr"
+	@echo "... myname"
 	@echo "... sleep"
 	@echo "... true"
 	@echo "... wai"
 	@echo "... yes"
+	@echo "... src/dog.o"
+	@echo "... src/dog.i"
+	@echo "... src/dog.s"
 	@echo "... src/echo.o"
 	@echo "... src/echo.i"
 	@echo "... src/echo.s"
@@ -448,6 +527,9 @@ help:
 	@echo "... src/lsdr.o"
 	@echo "... src/lsdr.i"
 	@echo "... src/lsdr.s"
+	@echo "... src/myname.o"
+	@echo "... src/myname.i"
+	@echo "... src/myname.s"
 	@echo "... src/sleep.o"
 	@echo "... src/sleep.i"
 	@echo "... src/sleep.s"

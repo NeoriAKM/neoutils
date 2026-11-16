@@ -47,9 +47,11 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/dog.dir/DependInfo.cmake"
   "CMakeFiles/echo.dir/DependInfo.cmake"
   "CMakeFiles/false.dir/DependInfo.cmake"
   "CMakeFiles/lsdr.dir/DependInfo.cmake"
+  "CMakeFiles/myname.dir/DependInfo.cmake"
   "CMakeFiles/sleep.dir/DependInfo.cmake"
   "CMakeFiles/true.dir/DependInfo.cmake"
   "CMakeFiles/wai.dir/DependInfo.cmake"

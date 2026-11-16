@@ -1,6 +1,8 @@
+/home/akm/doc/neoutils/build/CMakeFiles/dog.dir
 /home/akm/doc/neoutils/build/CMakeFiles/echo.dir
 /home/akm/doc/neoutils/build/CMakeFiles/false.dir
 /home/akm/doc/neoutils/build/CMakeFiles/lsdr.dir
+/home/akm/doc/neoutils/build/CMakeFiles/myname.dir
 /home/akm/doc/neoutils/build/CMakeFiles/sleep.dir
 /home/akm/doc/neoutils/build/CMakeFiles/true.dir
 /home/akm/doc/neoutils/build/CMakeFiles/wai.dir

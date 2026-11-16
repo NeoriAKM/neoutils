@@ -63,9 +63,11 @@ CMAKE_BINARY_DIR = /home/akm/doc/neoutils/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/dog.dir/all
 all: CMakeFiles/echo.dir/all
 all: CMakeFiles/false.dir/all
 all: CMakeFiles/lsdr.dir/all
+all: CMakeFiles/myname.dir/all
 all: CMakeFiles/sleep.dir/all
 all: CMakeFiles/true.dir/all
 all: CMakeFiles/wai.dir/all
@@ -73,9 +75,11 @@ all: CMakeFiles/yes.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
+codegen: CMakeFiles/dog.dir/codegen
 codegen: CMakeFiles/echo.dir/codegen
 codegen: CMakeFiles/false.dir/codegen
 codegen: CMakeFiles/lsdr.dir/codegen
+codegen: CMakeFiles/myname.dir/codegen
 codegen: CMakeFiles/sleep.dir/codegen
 codegen: CMakeFiles/true.dir/codegen
 codegen: CMakeFiles/wai.dir/codegen
@@ -87,14 +91,48 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/dog.dir/clean
 clean: CMakeFiles/echo.dir/clean
 clean: CMakeFiles/false.dir/clean
 clean: CMakeFiles/lsdr.dir/clean
+clean: CMakeFiles/myname.dir/clean
 clean: CMakeFiles/sleep.dir/clean
 clean: CMakeFiles/true.dir/clean
 clean: CMakeFiles/wai.dir/clean
 clean: CMakeFiles/yes.dir/clean
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/dog.dir
+
+# All Build rule for target.
+CMakeFiles/dog.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=1,2 "Built target dog"
+.PHONY : CMakeFiles/dog.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/dog.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/akm/doc/neoutils/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dog.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/akm/doc/neoutils/build/CMakeFiles 0
+.PHONY : CMakeFiles/dog.dir/rule
+
+# Convenience name for target.
+dog: CMakeFiles/dog.dir/rule
+.PHONY : dog
+
+# codegen rule for target.
+CMakeFiles/dog.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=1,2 "Finished codegen for target dog"
+.PHONY : CMakeFiles/dog.dir/codegen
+
+# clean rule for target.
+CMakeFiles/dog.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dog.dir/build.make CMakeFiles/dog.dir/clean
+.PHONY : CMakeFiles/dog.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/echo.dir
@@ -103,7 +141,7 @@ clean: CMakeFiles/yes.dir/clean
 CMakeFiles/echo.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/echo.dir/build.make CMakeFiles/echo.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/echo.dir/build.make CMakeFiles/echo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=1,2 "Built target echo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=3,4 "Built target echo"
 .PHONY : CMakeFiles/echo.dir/all
 
 # Build rule for subdir invocation for target.
@@ -120,7 +158,7 @@ echo: CMakeFiles/echo.dir/rule
 # codegen rule for target.
 CMakeFiles/echo.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/echo.dir/build.make CMakeFiles/echo.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=1,2 "Finished codegen for target echo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=3,4 "Finished codegen for target echo"
 .PHONY : CMakeFiles/echo.dir/codegen
 
 # clean rule for target.
@@ -135,7 +173,7 @@ CMakeFiles/echo.dir/clean:
 CMakeFiles/false.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/false.dir/build.make CMakeFiles/false.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/false.dir/build.make CMakeFiles/false.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=3,4 "Built target false"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=5,6 "Built target false"
 .PHONY : CMakeFiles/false.dir/all
 
 # Build rule for subdir invocation for target.
@@ -152,7 +190,7 @@ false: CMakeFiles/false.dir/rule
 # codegen rule for target.
 CMakeFiles/false.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/false.dir/build.make CMakeFiles/false.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=3,4 "Finished codegen for target false"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=5,6 "Finished codegen for target false"
 .PHONY : CMakeFiles/false.dir/codegen
 
 # clean rule for target.
@@ -167,7 +205,7 @@ CMakeFiles/false.dir/clean:
 CMakeFiles/lsdr.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lsdr.dir/build.make CMakeFiles/lsdr.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lsdr.dir/build.make CMakeFiles/lsdr.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=5,6 "Built target lsdr"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=7,8 "Built target lsdr"
 .PHONY : CMakeFiles/lsdr.dir/all
 
 # Build rule for subdir invocation for target.
@@ -184,7 +222,7 @@ lsdr: CMakeFiles/lsdr.dir/rule
 # codegen rule for target.
 CMakeFiles/lsdr.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lsdr.dir/build.make CMakeFiles/lsdr.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=5,6 "Finished codegen for target lsdr"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=7,8 "Finished codegen for target lsdr"
 .PHONY : CMakeFiles/lsdr.dir/codegen
 
 # clean rule for target.
@@ -193,13 +231,45 @@ CMakeFiles/lsdr.dir/clean:
 .PHONY : CMakeFiles/lsdr.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/myname.dir
+
+# All Build rule for target.
+CMakeFiles/myname.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=9,10 "Built target myname"
+.PHONY : CMakeFiles/myname.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/myname.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/akm/doc/neoutils/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/myname.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/akm/doc/neoutils/build/CMakeFiles 0
+.PHONY : CMakeFiles/myname.dir/rule
+
+# Convenience name for target.
+myname: CMakeFiles/myname.dir/rule
+.PHONY : myname
+
+# codegen rule for target.
+CMakeFiles/myname.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=9,10 "Finished codegen for target myname"
+.PHONY : CMakeFiles/myname.dir/codegen
+
+# clean rule for target.
+CMakeFiles/myname.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myname.dir/build.make CMakeFiles/myname.dir/clean
+.PHONY : CMakeFiles/myname.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/sleep.dir
 
 # All Build rule for target.
 CMakeFiles/sleep.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sleep.dir/build.make CMakeFiles/sleep.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sleep.dir/build.make CMakeFiles/sleep.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=7,8 "Built target sleep"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=11,12 "Built target sleep"
 .PHONY : CMakeFiles/sleep.dir/all
 
 # Build rule for subdir invocation for target.
@@ -216,7 +286,7 @@ sleep: CMakeFiles/sleep.dir/rule
 # codegen rule for target.
 CMakeFiles/sleep.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sleep.dir/build.make CMakeFiles/sleep.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=7,8 "Finished codegen for target sleep"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=11,12 "Finished codegen for target sleep"
 .PHONY : CMakeFiles/sleep.dir/codegen
 
 # clean rule for target.
@@ -231,7 +301,7 @@ CMakeFiles/sleep.dir/clean:
 CMakeFiles/true.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/true.dir/build.make CMakeFiles/true.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/true.dir/build.make CMakeFiles/true.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=9,10 "Built target true"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=13,14 "Built target true"
 .PHONY : CMakeFiles/true.dir/all
 
 # Build rule for subdir invocation for target.
@@ -248,7 +318,7 @@ true: CMakeFiles/true.dir/rule
 # codegen rule for target.
 CMakeFiles/true.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/true.dir/build.make CMakeFiles/true.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=9,10 "Finished codegen for target true"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=13,14 "Finished codegen for target true"
 .PHONY : CMakeFiles/true.dir/codegen
 
 # clean rule for target.
@@ -263,7 +333,7 @@ CMakeFiles/true.dir/clean:
 CMakeFiles/wai.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wai.dir/build.make CMakeFiles/wai.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wai.dir/build.make CMakeFiles/wai.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=11,12 "Built target wai"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=15,16 "Built target wai"
 .PHONY : CMakeFiles/wai.dir/all
 
 # Build rule for subdir invocation for target.
@@ -280,7 +350,7 @@ wai: CMakeFiles/wai.dir/rule
 # codegen rule for target.
 CMakeFiles/wai.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/wai.dir/build.make CMakeFiles/wai.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=11,12 "Finished codegen for target wai"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=15,16 "Finished codegen for target wai"
 .PHONY : CMakeFiles/wai.dir/codegen
 
 # clean rule for target.
@@ -295,7 +365,7 @@ CMakeFiles/wai.dir/clean:
 CMakeFiles/yes.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/yes.dir/build.make CMakeFiles/yes.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/yes.dir/build.make CMakeFiles/yes.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=13,14 "Built target yes"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=17,18 "Built target yes"
 .PHONY : CMakeFiles/yes.dir/all
 
 # Build rule for subdir invocation for target.
@@ -312,7 +382,7 @@ yes: CMakeFiles/yes.dir/rule
 # codegen rule for target.
 CMakeFiles/yes.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/yes.dir/build.make CMakeFiles/yes.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=13,14 "Finished codegen for target yes"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/akm/doc/neoutils/build/CMakeFiles --progress-num=17,18 "Finished codegen for target yes"
 .PHONY : CMakeFiles/yes.dir/codegen
 
 # clean rule for target.
