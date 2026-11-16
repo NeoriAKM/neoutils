@@ -5,8 +5,20 @@
 
 # Neoutils 2.0
 
+Insanely simple **coreutils**, written on **C**. Contains **10** utils, but large - only 1-3.
 
-Insanely simple **coreutils**, written on **C**. Contains only 1 util - lsdr.
+## Utils
+
+| utilito | input | output | flags |
+|:-------:|:-----:|:------:|:-----:|
+| lsdr | dirname | files in this dir | -n: turning on numeration for files; -a: shows all files without outcludes |
+| dog | filename | file content (lines) | -n: line numeration |
+| echo | string | outs this string | - |
+| false & true | - | returns true or false | - |
+| myname | - | out user name | - |
+| sleep | time (in int) | freezing console for [n] seconds | - |
+| yes | yyyyyy | yyyyyy | yyyyyy |
+| wai | - | out user directory | - |
 
 ## Build
 
@@ -19,7 +31,7 @@ sudo cmake --install build
 
 ## run
 
-Type a command name *(example: `lsdr`)*. It will run, because `sudo cmake --install build` moving executable files to `/usr/bin`
+Type a command name *(example: `lsdr` or `yes`)*. It will run, because `sudo cmake --install build` moving executable files to `/usr/bin`
 
 ---
 
