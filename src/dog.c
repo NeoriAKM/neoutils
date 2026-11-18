@@ -1,14 +1,15 @@
-// ---------------------------------------- //
-// dog: read files on your pc               //
-//                                          //
-//            Author: NeoriAKM              //
-// ---------------------------------------- //
+// -------------------------- //
+// dog: read files on your pc //
+//                            //
+// ?    Author: NeoriAKM    ? //
+// -------------------------- //
 
-// #include <string.h>
+#include <string.h>
 #include <stdio.h>
 #include <dirent.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include "../lib/pub.h"
 
 void flush_out(char* buf, size_t* len) {
     if (*len > 0) {
@@ -32,8 +33,15 @@ int main(int argc, char* argv[]) {
 
     if (argc > 1) for (int i=1; i<argc; i++) {
         if (argv[i][0] == '-') {
-            for (int j = 1; argv[i][j] != '\0'; j++) {
-                if (argv[i][j] == 'n') flag.numeration = 1;
+            if (argv[i][1] == '-') {
+                if      (strcmp(argv[i], "--nums")==0) flag.numeration = 1;
+                else if (strcmp(argv[i], "--help")==0) {help_msg("dog"); return 0;}
+
+                else fprintf(stderr, "[WARN] Unknown flag: %s\n", argv[i]);
+            } else {
+                for (int j = 1; argv[i][j] != '\0'; j++) {
+                    if (argv[i][j] == 'n') flag.numeration = 1;
+                }
             }
         } else {
             if (!filename_typed) {
@@ -47,7 +55,8 @@ int main(int argc, char* argv[]) {
     openval = filename_typed ? open(filename, O_RDONLY) : STDIN_FILENO;
 
     if (openval == -1) {
-        fprintf(stderr, "[ERROR] No such file or directory\n");
+        printf("[ERROR] ");
+        perror("dog");
         return 1;
     }
 
@@ -82,6 +91,6 @@ int main(int argc, char* argv[]) {
         }
     }
     flush_out(outbuf, &outlen);
-    if (openval != STDIN_FILENO) close(openval);
+    if (openval!=STDIN_FILENO) close(openval);
     return 0;
 }

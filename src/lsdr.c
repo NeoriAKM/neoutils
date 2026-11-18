@@ -1,7 +1,7 @@
 // ---------------------------------------- //
 // lsdr: shows list of files from directory //
 //                                          //
-//            Author: NeoriAKM              //
+// ?          Author: NeoriAKM            ? //
 // ---------------------------------------- //
 
 #include <string.h>
@@ -28,9 +28,9 @@ int main(int argc, char* argv[]) {
 
             // full flag name
             if (argv[i][1] == '-') {
-                if      (strcmp(argv[i], "--all"    )==0) flag.all = 1;
-                else if (strcmp(argv[i], "--nums"   )==0) flag.numeration = 1;
-                else if (strcmp(argv[i], "--help"   )==0) {help_msg("lsdr"); return 0;}
+                if      (strcmp(argv[i], "--all" )==0) flag.all = 1;
+                else if (strcmp(argv[i], "--nums")==0) flag.numeration = 1;
+                else if (strcmp(argv[i], "--help")==0) {help_msg("lsdr"); return 0;}
 
                 else fprintf(stderr, "[WARN] Unknown flag: %s\n", argv[i]);
 
