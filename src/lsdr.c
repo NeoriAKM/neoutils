@@ -8,10 +8,12 @@
 #include <stdio.h>
 #include <dirent.h>
 #include "../lib/pub.h"
+#include <sys/stat.h>
 
 struct flags {
     int all;
     int numeration;
+    int colors;
 };
 
 int main(int argc, char* argv[]) {
@@ -19,6 +21,7 @@ int main(int argc, char* argv[]) {
 
     flag.all = 0;
     flag.numeration = 0;
+    flag.colors = 1;
 
     char* dirname = ".";
     int dirname_typed = 0;
@@ -28,9 +31,10 @@ int main(int argc, char* argv[]) {
 
             // full flag name
             if (argv[i][1] == '-') {
-                if      (strcmp(argv[i], "--all" )==0) flag.all = 1;
-                else if (strcmp(argv[i], "--nums")==0) flag.numeration = 1;
-                else if (strcmp(argv[i], "--help")==0) {help_msg("lsdr"); return 0;}
+                if      (strcmp(argv[i], "--all" ) ==0) flag.all = 1;
+                else if (strcmp(argv[i], "--nums") ==0) flag.numeration = 1;
+                else if (strcmp(argv[i], "--no-color")==0) flag.colors = 0;
+                else if (strcmp(argv[i], "--help") ==0) {help_msg("lsdr"); return 0;}
 
                 else fprintf(stderr, "[WARN] Unknown flag: %s\n", argv[i]);
 
@@ -53,21 +57,40 @@ int main(int argc, char* argv[]) {
     }
 
     DIR* dir = opendir(dirname);
-    if (dir == NULL) {
-        fprintf(stderr, "[ERROR] Couldn't open directory\n");
-        return 1;
-    }
+    if (dir == NULL) {fprintf(stderr, "[ERROR] Couldn't open directory\n"); return 1;}
+
     struct dirent* entry;
     int findex = 1;
+    int color_loop = 0;
+
     while ((entry = readdir(dir)) != NULL) {
         if (entry->d_name[0] == '.' && flag.all == 0) continue;
+        if (entry->d_type == DT_DIR) printf("%s", colfat);
 
-        if (flag.numeration) printf("%i. ", findex);
+        if (flag.numeration) {
+            if (flag.colors) {
+                if (color_loop==0) printf("%s", col1);
+                else printf("%s", col2);
+            }
+            printf("%5d. ", findex);
+        }
 
+        if (flag.colors) {
+            if (color_loop==0) printf("%s", col2);
+            else printf("%s", col1);
+        }
         printf("%s\n", entry->d_name);
+
         findex++;
+        if (flag.colors) {
+            if      (color_loop==0) color_loop = 1;
+            else if (color_loop==1) color_loop = 0;
+        }
+        printf("%s", col0);
     }
 
+
     closedir(dir);
+    printf("%s", col0);
     return 0;
 }
