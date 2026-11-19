@@ -5,7 +5,7 @@
 
 # Neoutils 2.0
 
-Insanely simple **coreutils**, written on **C**. Contains **10** utils, but large - only 1-3.
+Insanely simple **coreutils**, written on **C**. Contains **11** utils, but large - only 2-4.
 
 ## Utils
 
@@ -19,6 +19,7 @@ Insanely simple **coreutils**, written on **C**. Contains **10** utils, but larg
 | sleep | time (in int) | freezing console for [n] seconds |
 | yes | yyyyyy | yyyyyy |
 | wai | - | out user directory |
+| strc | filename | count of lines in this file |
 
 And about flags you can read on lauch program. But if program has no flags, nothing will hapenned
 

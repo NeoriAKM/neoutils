@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <dirent.h>
 #include "../lib/pub.h"
-#include <sys/stat.h>
+// #include <sys/stat.h>
 
 struct flags {
     int all;
@@ -62,10 +62,12 @@ int main(int argc, char* argv[]) {
     struct dirent* entry;
     int findex = 1;
     int color_loop = 0;
+    char* str_ender = "";
 
     while ((entry = readdir(dir)) != NULL) {
         if (entry->d_name[0] == '.' && flag.all == 0) continue;
         if (entry->d_type == DT_DIR) printf("%s", colfat);
+        else if (entry->d_type == DT_UNKNOWN) str_ender = "(?)";
 
         if (flag.numeration) {
             if (flag.colors) {
@@ -79,7 +81,7 @@ int main(int argc, char* argv[]) {
             if (color_loop==0) printf("%s", col2);
             else printf("%s", col1);
         }
-        printf("%s\n", entry->d_name);
+        printf("%s %s\n", entry->d_name, str_ender);
 
         findex++;
         if (flag.colors) {
@@ -87,6 +89,7 @@ int main(int argc, char* argv[]) {
             else if (color_loop==1) color_loop = 0;
         }
         printf("%s", col0);
+        str_ender = "";
     }
 
 
