@@ -14,14 +14,27 @@ struct flags {
     int all;
     int numeration;
     int colors;
+    int large;
+};
+
+struct count {
+    int dirs;
+    int files;
+    int undefined;
 };
 
 int main(int argc, char* argv[]) {
     struct flags flag;
+    struct count counter;
 
     flag.all = 0;
     flag.numeration = 0;
     flag.colors = 1;
+    flag.large = 0;
+
+    counter.dirs      = 0;
+    counter.files     = 0;
+    counter.undefined = 0;
 
     char* dirname = ".";
     int dirname_typed = 0;
@@ -35,6 +48,7 @@ int main(int argc, char* argv[]) {
                 else if (strcmp(argv[i], "--nums") ==0) flag.numeration = 1;
                 else if (strcmp(argv[i], "--no-color")==0) flag.colors = 0;
                 else if (strcmp(argv[i], "--help") ==0) {help_msg("lsdr"); return 0;}
+                else if (strcmp(argv[i], "--large")==0) flag.large = 1;
 
                 else fprintf(stderr, "[WARN] Unknown flag: %s\n", argv[i]);
 
@@ -43,6 +57,7 @@ int main(int argc, char* argv[]) {
                 for (int j = 1; argv[i][j] != '\0'; j++) {
                     if      (argv[i][j] == 'a') flag.all = 1;
                     else if (argv[i][j] == 'n') flag.numeration = 1;
+                    else if (argv[i][j] == 'l') flag.large = 1;
 
                     else fprintf(stderr, "[WARN] Unknown flag: -%c\n", argv[i][j]);
                 }
@@ -66,8 +81,12 @@ int main(int argc, char* argv[]) {
 
     while ((entry = readdir(dir)) != NULL) {
         if (entry->d_name[0] == '.' && flag.all == 0) continue;
-        if (entry->d_type == DT_DIR) printf("%s", colfat);
-        else if (entry->d_type == DT_UNKNOWN) str_ender = "(?)";
+        if (entry->d_type == DT_DIR) {
+            printf("%s", colfat);
+            counter.dirs++;
+        }
+        else if (entry->d_type == DT_UNKNOWN) {str_ender = "(?)"; counter.undefined++;}
+        else if (entry->d_type == DT_REG) counter.files++;
 
         if (flag.numeration) {
             if (flag.colors) {
@@ -91,9 +110,13 @@ int main(int argc, char* argv[]) {
         printf("%s", col0);
         str_ender = "";
     }
+    printf("%s\n", col0);
 
+    if (flag.large == 1) {
+        printf("%d dirs, %d files and %d undefineds\n", counter.dirs, counter.files, counter.undefined);
+        printf("  in directory '%s'\n", dirname);
+    }
 
     closedir(dir);
-    printf("%s", col0);
     return 0;
 }
