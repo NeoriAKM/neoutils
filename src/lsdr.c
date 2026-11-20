@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <dirent.h>
 #include "../lib/pub.h"
+#include <sys/stat.h>
 // #include <sys/stat.h>
 
 struct flags {
@@ -22,6 +23,25 @@ struct count {
     int files;
     int undefined;
 };
+
+void print_size(struct stat *st, const char *color, const char *col_reset) {
+    if (S_ISDIR(st->st_mode)) {
+        printf("(      DIR) ");
+        return;
+    }
+
+    long long size = st->st_size;
+
+    if (size < 1024) {
+        printf("(%5lld   %sB%s) ", size, color, col_reset);
+    } else if (size < 1024 * 1024) {
+        printf("(%5lld %sKiB%s) ", (size + 1023) / 1024, color, col_reset);
+    } else if (size < 1024LL * 1024 * 1024) {
+        printf("(%5lld %sMiB%s) ", (size + 1048575) / 1048576, color, col_reset);
+    } else {
+        printf("(%5lld %sGiB%s) ", (size + 1073741823) / 1073741824, color, col_reset);
+    }
+}
 
 int main(int argc, char* argv[]) {
     struct flags flag;
@@ -75,12 +95,18 @@ int main(int argc, char* argv[]) {
     if (dir == NULL) {fprintf(stderr, "[ERROR] Couldn't open directory\n"); return 1;}
 
     struct dirent* entry;
+    struct stat file_stat;
+
     int findex = 1;
     int color_loop = 0;
     char* str_ender = "";
 
     while ((entry = readdir(dir)) != NULL) {
         if (entry->d_name[0] == '.' && flag.all == 0) continue;
+
+        char full_path[4096];
+        snprintf(full_path, sizeof(full_path), "%s/%s", dirname, entry->d_name);
+
         if (entry->d_type == DT_DIR) {
             printf("%s", colfat);
             counter.dirs++;
@@ -89,17 +115,23 @@ int main(int argc, char* argv[]) {
         else if (entry->d_type == DT_REG) counter.files++;
 
         if (flag.numeration) {
-            if (flag.colors) {
-                if (color_loop==0) printf("%s", col1);
-                else printf("%s", col2);
-            }
-            printf("%5d. ", findex);
+            if (flag.colors) printf("%s", (color_loop == 0) ? col1 : col2);
+            printf("%5d. %s", findex, col0);
         }
 
-        if (flag.colors) {
-            if (color_loop==0) printf("%s", col2);
-            else printf("%s", col1);
+        if (flag.large) {
+            if (lstat(full_path, &file_stat) == 0) {
+                const char *sz_col =(entry->d_type == DT_DIR) ? clr_siz_dir              :
+                                    (file_stat.st_size < 1024*1024) ? clr_siz_low        :
+                                    (file_stat.st_size < 1024LL*1024*1024) ? clr_siz_med : clr_siz_big;
+                print_size(&file_stat, sz_col, col0);
+            } else {
+                printf("(    ??? KiB) ");
+            }
         }
+
+        if (flag.colors) printf("%s", (color_loop == 0) ? col2 : col1);
+        if (entry->d_type == DT_DIR) printf("%s", colfat);
         printf("%s %s\n", entry->d_name, str_ender);
 
         findex++;

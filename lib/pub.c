@@ -21,7 +21,12 @@ int help_msg(const char* util_name) {
     }
     return 0;
 }
-const char* col0   = "\033[31;0m";
-const char* col1   = "\033[31;36m";
-const char* col2   = "\033[31;32m";
+const char* col0   = "\033[0m";
+const char* col1   = "\033[36m";
+const char* col2   = "\033[32m";
 const char* colfat = "\033[1m";
+
+const char* clr_siz_low = "\033[32m";
+const char* clr_siz_med = "\033[33m";
+const char* clr_siz_big = "\033[31m";
+const char* clr_siz_dir = "\033[38m";
