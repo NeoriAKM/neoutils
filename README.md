@@ -5,7 +5,7 @@
 
 # Neoutils 2.0
 
-Insanely simple **coreutils**, written on **C**. Contains **11** utils, but large - only 2-4.
+Primirive **coreutils**, written on **C**. Contains **12** utils, but large - only 2-4.
 
 ## Utils
 
@@ -20,8 +20,13 @@ Insanely simple **coreutils**, written on **C**. Contains **11** utils, but larg
 | yes | yyyyyy | yyyyyy |
 | wai | - | out user directory |
 | strc | filename | count of lines in this file |
+| cp | file & path to copy this file | Copying file |
 
-And about flags you can read on lauch program. But if program has no flags, nothing will hapenned
+And about flags you can read on lauch program. But if program has no flags, nothing will hapenned.
+
+```bash
+[util] --help
+```
 
 ## Build
 
