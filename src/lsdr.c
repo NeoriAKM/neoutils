@@ -16,6 +16,9 @@ struct flags {
     int numeration;
     int colors;
     int large;
+
+    int onlyfiles;
+    int onlydirs;
 };
 
 struct count {
@@ -70,6 +73,9 @@ int main(int argc, char* argv[]) {
                 else if (strcmp(argv[i], "--help") ==0) {help_msg("lsdr"); return 0;}
                 else if (strcmp(argv[i], "--large")==0) flag.large = 1;
 
+                else if (strcmp(argv[i], "--dirs") ==0) flag.onlydirs  = 1;
+                else if (strcmp(argv[i], "--files")==0) flag.onlyfiles = 1;
+
                 else fprintf(stderr, "[WARN] Unknown flag: %s\n", argv[i]);
 
             // simple 1-letter flag
@@ -78,6 +84,7 @@ int main(int argc, char* argv[]) {
                     if      (argv[i][j] == 'a') flag.all = 1;
                     else if (argv[i][j] == 'n') flag.numeration = 1;
                     else if (argv[i][j] == 'l') flag.large = 1;
+                    else if (argv[i][j] == 'h') {help_msg("lsdr"); return 0;}
 
                     else fprintf(stderr, "[WARN] Unknown flag: -%c\n", argv[i][j]);
                 }
@@ -101,18 +108,20 @@ int main(int argc, char* argv[]) {
     int color_loop = 0;
     char* str_ender = "";
 
+    /* ! /////////////////// MAIN LOOP /////////////////// ! */
+
     while ((entry = readdir(dir)) != NULL) {
         if (entry->d_name[0] == '.' && flag.all == 0) continue;
 
         char full_path[4096];
         snprintf(full_path, sizeof(full_path), "%s/%s", dirname, entry->d_name);
 
-        if (entry->d_type == DT_DIR) {
-            printf("%s", colfat);
-            counter.dirs++;
-        }
+        if (entry->d_type == DT_DIR) counter.dirs++;
         else if (entry->d_type == DT_UNKNOWN) {str_ender = "(?)"; counter.undefined++;}
         else if (entry->d_type == DT_REG) counter.files++;
+
+        if      (flag.onlydirs  && entry->d_type != DT_DIR) continue;
+        else if (flag.onlyfiles && entry->d_type != DT_REG) continue;
 
         if (flag.numeration) {
             if (flag.colors) printf("%s", (color_loop == 0) ? col1 : col2);
@@ -132,6 +141,7 @@ int main(int argc, char* argv[]) {
 
         if (flag.colors) printf("%s", (color_loop == 0) ? col2 : col1);
         if (entry->d_type == DT_DIR) printf("%s", colfat);
+
         printf("%s %s\n", entry->d_name, str_ender);
 
         findex++;

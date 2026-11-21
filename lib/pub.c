@@ -8,8 +8,11 @@ int help_msg(const char* util_name) {
             " -h  --help     showing this reference\n"
             " -a  --all      prints ALL files without excludes\n"
             " -n  --nums     Writing index before a filename\n"
-            "  --no-color    disabling green and cyan zebra\n"
             " -l  --large    Shows sizes and info abt folder\n"
+            "  --no-color    disabling green and cyan zebra\n"
+            "\n"
+            "  --files       disabling folder printing\n"
+            "  --dirs        disablind directories printing\n"
             "--------------------------------------------------\n"
         );
     } else if (strcmp(util_name, "dog")==0) {
