@@ -1,7 +1,7 @@
 ![C](https://img.shields.io/badge/C-99-blue)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 ![Last commit](https://img.shields.io/github/last-commit/NeoriAKM/qalam?color=red)
-![License](https://img.shields.io/badge/Last_README_update-15.11.2026-green)
+![License](https://img.shields.io/badge/Last_README_update-22.11.2026-green)
 
 # Neoutils 2.0
 
