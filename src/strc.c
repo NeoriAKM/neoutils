@@ -60,7 +60,7 @@ int main(int argc, char* argv[]) {
             }
             else fprintf(stderr, "[WARN] type filename once. '%s' skipped\n", argv[i]);
         }
-    } else if (argc < 2) {printf("No file entered. closing program\n"); return 1;}
+    }
 
 
     openval = filename_typed ? open(filename, O_RDONLY) : STDIN_FILENO;
@@ -83,7 +83,7 @@ int main(int argc, char* argv[]) {
         for (ssize_t i=0; i < b_read; i++) {
             switch (mode) {
                 case 'c': counted++;                                              break;
-                case 'w': if (buf[i] == ' ' && buf[i-1] != ' ' && i>0) counted++; break;
+                case 'w': if (buf[i] == ' ' && prev_char != ' ' && i>0) counted++; break;
                 default : if (buf[i] == '\n') counted++;                          break;
             }
             prev_char = buf[i];
