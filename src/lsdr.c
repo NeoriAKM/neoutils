@@ -9,7 +9,6 @@
 #include <dirent.h>
 #include "../lib/pub.h"
 #include <sys/stat.h>
-// #include <sys/stat.h>
 
 struct flags {
     int all;
@@ -58,6 +57,9 @@ int main(int argc, char* argv[]) {
     counter.dirs      = 0;
     counter.files     = 0;
     counter.undefined = 0;
+
+    flag.onlydirs = 0;
+    flag.onlyfiles= 0;
 
     char* dirname = ".";
     int dirname_typed = 0;

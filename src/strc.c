@@ -90,7 +90,7 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    if (prev_char != '\n') counted++;
+    if (prev_char != '\n' && flag.lines) counted++;
 
     printf(
         "%s have a: %i %s", filename, counted,
