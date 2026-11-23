@@ -3,9 +3,9 @@
 ![Last commit](https://img.shields.io/github/last-commit/NeoriAKM/qalam?color=red)
 ![License](https://img.shields.io/badge/Last_README_update-22.11.2026-green)
 
-# Neoutils 2.0
+# Neoutils Beta 2.0
 
-Primirive **coreutils**, written on **C**. Contains **12** utils, but large - only 2-4.
+Primirive **coreutils**, written on **C**. Contains **14** utils, but large - only 2-4.
 
 ## Utils
 
@@ -17,10 +17,12 @@ Primirive **coreutils**, written on **C**. Contains **12** utils, but large - on
 | false & true | - | returns true or false |
 | myname | - | out user name | - |
 | sleep | time (in int) | freezing console for [n] seconds |
-| yes | yyyyyy | yyyyyy |
+| yes | yyyyyy | yyyyyy yyy |
 | wai | - | out user directory |
 | strc | filename | count of lines in this file |
 | cp | file & path to copy this file | Copying file |
+| clear | - | clears your shell |
+| neoutils | - | hub |
 
 And about flags you can read on lauch program. But if program has no flags, nothing will hapenned.
 
