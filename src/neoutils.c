@@ -41,6 +41,16 @@ int main() {
         input[strcspn(input, "\n")] = '\0';
 
         printf("Coming soon...\n");
+    } else if (strcmp(input, "c")==0) {
+        printf(""
+            "--------------- Credits ---------------\n"
+            " -    Version     -      Beta 2.0    -\n"
+            " -  Hub version   -      Alpha 0.1   -\n"
+            "---------------------------------------\n"
+            " -    NeoriAKM    -  Main developper -\n"
+            " -    Utils for   -    Progwilinux   -\n"
+            "---------------------------------------\n"
+        );
     }
 
     return 0;
