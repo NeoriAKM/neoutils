@@ -16,6 +16,8 @@ struct flags {
     int words;
     int lines;
     int chars;
+
+    int quiet;
 };
 
 int main(int argc, char* argv[]) {
@@ -25,6 +27,8 @@ int main(int argc, char* argv[]) {
     flag.lines = 1;
     flag.words = 0;
     flag.chars = 0;
+
+    flag.quiet = 0;
 
     // other
     char* filename = "";
@@ -40,6 +44,7 @@ int main(int argc, char* argv[]) {
                 if      (strcmp(argv[i], "--lines")==0)  flag.lines = 1;
                 else if (strcmp(argv[i], "--words")==0) {flag.words = 1; flag.lines = 0;}
                 else if (strcmp(argv[i], "--chars")==0) {flag.chars = 1; flag.lines = 0;}
+                else if (strcmp(argv[i], "--quiet")==0) flag.quiet = 1;
                 else if (strcmp(argv[i], "--help") ==0) {help_msg("strc"); return 0;}
 
                 else fprintf(stderr, "[WARN] Unknown flag: %s\n", argv[i]);
@@ -48,6 +53,7 @@ int main(int argc, char* argv[]) {
                     if      (argv[i][j] == 'l'); // NOP
                     else if (argv[i][j] == 'w') {flag.words = 1; flag.lines = 0;}
                     else if (argv[i][j] == 'c') {flag.chars = 1; flag.lines = 0;}
+                    else if (argv[i][j] == 'q') flag.quiet = 1;
                     else if (argv[i][j] == 'h') {help_msg("strc"); return 0;}
 
                     else fprintf(stderr, "[WARN] Unknown flag: -%c\n", argv[i][j]);
@@ -92,10 +98,14 @@ int main(int argc, char* argv[]) {
 
     if (prev_char != '\n' && flag.lines) counted++;
 
-    printf(
-        "%s have a: %i %s", filename, counted,
-        (flag.lines) ? "lines" : (flag.chars) ? "characters" : "words"
-    );
+    if (flag.quiet) {
+        printf("%i\n", counted);
+    } else {
+        printf(
+            "%s have a: %i %s\n", filename, counted,
+            (flag.lines) ? "lines" : (flag.chars) ? "characters" : "words"
+        );
+    }
 
     if (openval!=STDIN_FILENO) close(openval);
     return 0;

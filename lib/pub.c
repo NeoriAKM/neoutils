@@ -25,7 +25,8 @@ int help_msg(const char* util_name) {
     } else if (strcmp(util_name, "strc")==0) {
         printf(""
             "-----------------------------------------------\n"
-            " -h  --help     showing this reference\n\n"
+            " -h  --help     showing this reference\n"
+            " -q  --quiet    types only sheet number\n\n"
             " -c  --chars    printing chars count\n"
             " -w  --words    printing words count\n"
             " -l  --lines    Printing lines count (default)\n"
