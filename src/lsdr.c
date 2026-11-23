@@ -157,7 +157,20 @@ int main(int argc, char* argv[]) {
     printf("%s\n", col0);
 
     if (flag.large == 1) {
-        printf("%d dirs, %d files and %d undefineds\n", counter.dirs, counter.files, counter.undefined);
+        if (counter.undefined < 1) {
+            printf(
+                "%d dir%s and %d file%s\n",
+                counter.dirs, (counter.dirs > 1) ? "s" : "",
+                counter.files, (counter.files > 1) ? "s" : ""
+            );
+        } else {
+            printf(
+                "%d dir%s, %d file%s and %d undefineds\n",
+                counter.dirs, (counter.dirs > 1) ? "s" : "",
+                counter.files, (counter.files > 1) ? "s" : "",
+                counter.undefined
+            );
+        }
         printf("  in directory '%s'\n", dirname);
     }
 
