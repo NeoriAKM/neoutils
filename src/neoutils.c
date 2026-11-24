@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include "../lib/pub.h"
 
 int main() {
     char input[256];
@@ -43,8 +44,8 @@ int main() {
         input[strcspn(input, "\n")] = '\0';
 
         if (strcmp(input, "a")==0) {
-            printf(""
-                "\n  Info about addr\n"
+            printf("\n"
+                "   Info about addr (AdDr == Add Dir)\n"
                 "--------------- Flags ---------------\n"
                 " AdDr has no flags yet :/\n"
                 "--------- Basic functional ----------\n"
@@ -53,13 +54,33 @@ int main() {
                 "-------------------------------------\n"
             );
         } if (strcmp(input, "c")==0) {
-            printf(""
-                "\n  Info about clear\n"
+            printf("\n"
+                "  Info about clear\n"
                 "--------------- Flags ---------------\n"
                 " Clear has no flags yet :/\n"
                 "--------- Basic functional ----------\n"
                 " Clears your shell\n"
                 "-------------------------------------\n"
+            );
+        } if (strcmp(input, "C")==0) {
+            printf("\n"
+                "   Info about cp (Copy)\n"
+                "--------------- Flags ---------------\n"
+                " cp has no flags yet :/\n"
+                "--------- Basic functional ----------\n"
+                " Copying file. Only file. Not dir\n"
+                "-------------------------------------\n"
+            );
+        } if (strcmp(input, "d")==0) {
+            printf("\n"
+                "   Info about dog\n"
+                "--------------- Flags ---------------\n"
+                " %s-n --nums%s : Numerating lines on\n"
+                " the left side of the shell\n"
+                "--------- Basic functional ----------\n"
+                " Output text file content\n"
+                "-------------------------------------\n",
+                col1, col0
             );
         } else printf("Coming soon...\n");
     } else if (strcmp(input, "c")==0) {
