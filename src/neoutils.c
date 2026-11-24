@@ -21,6 +21,8 @@ int main() {
         NULL
     }; char** utils = utils_list;
 
+    printf("\033[3J\033[H\033[2J");
+    fflush(stdout);
     printf("--------------- Neoutils Hub ---------------\n");
 
     printf(""
@@ -40,7 +42,26 @@ int main() {
         fgets(input, sizeof(input), stdin);
         input[strcspn(input, "\n")] = '\0';
 
-        printf("Coming soon...\n");
+        if (strcmp(input, "a")==0) {
+            printf(""
+                "\n  Info about addr\n"
+                "--------------- Flags ---------------\n"
+                " AdDr has no flags yet :/\n"
+                "--------- Basic functional ----------\n"
+                " Making directory. that's why it's\n"
+                "called \"Add Dir\"\n"
+                "-------------------------------------\n"
+            );
+        } if (strcmp(input, "c")==0) {
+            printf(""
+                "\n  Info about clear\n"
+                "--------------- Flags ---------------\n"
+                " Clear has no flags yet :/\n"
+                "--------- Basic functional ----------\n"
+                " Clears your shell\n"
+                "-------------------------------------\n"
+            );
+        } else printf("Coming soon...\n");
     } else if (strcmp(input, "c")==0) {
         printf(""
             "--------------- Credits ---------------\n"
